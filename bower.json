@@ -1,6 +1,7 @@
 {
   "name": "wire.css",
   "version": "0.1.0",
+  "homepage": "http://wirecss.com",
   "authors": [
     "Pedro García <perichus@gmail.com>"
   ],
@@ -8,9 +9,16 @@
   "keywords": [ "sass", "css", "responsive", "rwd", "framework", "mobile", "flexbox"
   ],
   "license": "MIT",
-  "main"        : "dist/wire.css",
+  "main"        : "dist/css/wire.css",
   "repository"  : {
     "type"      : "git",
     "url"       : "git://github.com/wirecss/wire.css.git"
-  }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
