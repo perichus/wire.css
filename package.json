@@ -1,0 +1,21 @@
+{
+  "name": "wire.css",
+  "version": "0.1.0",
+  "homepage": "http://wirecss.com",
+  "license": "MIT",
+  "author": "Pedro Garcia <pedro@pedrogarcia.me>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:wirecss/wire.css.git"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-header": "*",
+    "gulp-minify-css": "*",
+    "gulp-notify": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-autoprefixer": "*",
+    "browser-sync": "*"
+  }
+}

@@ -1,0 +1,24 @@
+// ----------------------
+//
+// Forms
+//
+// ----------------------
+
+.form{
+    fieldset{
+
+    }
+    ul{
+        @extend %list-unstyled;
+    }
+}
+
+.form--block{
+    .form__field{
+        width: 100%;
+        margin-bottom: 1em;
+        input{
+            width: 100%;
+        }
+    }
+}

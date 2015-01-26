@@ -1,0 +1,144 @@
+// ----------------------
+//
+// HELPERS
+//
+// ----------------------
+
+
+// ----------------------
+// EMs
+// ----------------------
+@function em($value, $context: $font-size-base) {
+    @return #{1 / $context * $value}em
+}
+
+// ----------------------
+// Clearfix
+// ----------------------
+%clearfix {
+    &:after,
+    &:before{
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@if $markup == true{
+    .clearfix {
+        @extend %clearfix;
+    }
+}
+
+// ----------------------
+// Center
+// ----------------------
+%center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@if $markup == true{
+    .center {
+        @extend %center;
+    }
+}
+
+// ----------------------
+// Hide Text
+// ----------------------
+%hide-text {
+  font-size: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@if $markup == true{
+    .hide-text {
+        @extend %hide-text;
+    }
+}
+
+// ----------------------
+// List inline
+// ----------------------
+%list-inline {
+    display: inline-block;
+    margin-left: -5px;
+    > li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@if $markup == true{
+    .inline {
+        @extend %list-inline;
+    }
+}
+
+// ----------------------
+// List unstyled
+// ----------------------
+%list-unstyled {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+@if $markup == true{
+    .unstyled {
+        @extend %list-unstyled;
+    }
+}
+
+// ----------------------
+// Vertical Align
+// ----------------------
+$va-positions: top, bottom, middle;
+@each $va-position in $va-positions{
+    %va-#{$va-position}{
+        vertical-align: $va-position;
+    }
+}
+
+@if $markup == true{
+    @each $va-position in $va-positions{
+        .va-#{$va-position}{
+            @extend %va-#{$va-position};
+        }
+    }
+}
+
+// ----------------------
+// Hidden
+// ----------------------
+%hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+@if $markup == true{
+    .hidden {
+        @extend %hidden;
+    }
+}
+
+// ----------------------
+// Invisible
+// ----------------------
+%invisible {
+    visibility : hidden;
+}
+
+@if $markup == true{
+    .invisible {
+        @extend %invisible;
+    }
+}

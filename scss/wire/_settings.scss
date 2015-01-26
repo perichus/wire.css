@@ -1,0 +1,31 @@
+// ----------------------
+//
+// SETTINGS
+//
+// ----------------------
+
+// ----------------------
+// Namespace
+//
+// To avoid conflicts, Wire used custom namespace,
+// 'wire-' by default.
+// ----------------------
+$namespace:    '' !default;
+
+
+// ----------------------
+// Markup Mode
+//
+// Compile Wire.css with markup, if you only need extend
+// the styles in Sass, set this in 'false'.
+// Set 'true' or 'false'. True by default.
+// ----------------------
+$markup:       true !default;
+
+// ----------------------
+// Debug Mode
+//
+// Highlight markup errors. 
+// Set 'true' or 'false'. False by default.
+// ----------------------
+$debug:        false !default;

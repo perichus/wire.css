@@ -1,0 +1,21 @@
+// ----------------------
+//
+// BUTTONS
+//
+// ----------------------
+
+// ----------------------
+// Button
+// ----------------------
+%button{
+    padding: em(6);
+    background-color: $color-primary;
+    border: 0;
+}
+
+@if $markup == true{
+    .#{$namespace}button,
+    .#{$namespace}btn,{
+        @extend %button;
+    }
+}

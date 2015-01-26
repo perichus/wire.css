@@ -1,0 +1,41 @@
+// ----------------------
+//
+// VARIABLES
+//
+// ----------------------
+
+
+// ----------------------
+// Defaults Sizes
+// ----------------------
+$font-size-base: 16 !default;
+
+
+
+
+// ----------------------
+// Colors
+// ----------------------
+// ----------------------
+// Brand Colors
+// ----------------------
+$color-primary: #FFC843 !default;
+
+
+
+// ----------------------
+// Grid
+// ----------------------
+$max-columns: 12 !default;
+$base-gutter: 30px !default;
+
+
+// ----------------------
+// Breakpoints
+// ----------------------
+$breakpoints: (
+    "phone"     "screen and (max-width: 44.95em)",
+    "tablet"    "screen and (min-width: 45em) and (max-width: 63.93em)",
+    "desk"      "screen and (min-width: 64em)",
+    "retina"    "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)"
+) !default;

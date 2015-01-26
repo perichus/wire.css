@@ -1,0 +1,132 @@
+// ----------------------
+//
+// MIXINS
+//
+// ----------------------
+
+
+// ----------------------
+// Prefix
+// Use prefix to inster prefix in css property
+// prefix(property, value)
+// prefix(border-radius, 10px)
+// ----------------------
+@mixin prefix($property, $value...) {
+    -webkit-#{$property}: $value;
+       -moz-#{$property}: $value;
+        -ms-#{$property}: $value;
+         -o-#{$property}: $value;
+            #{$property}: $value;
+}
+
+// ----------------------
+// Box Sizing
+// box-sizing(value)
+// ----------------------
+@mixin box-sizing($boxsize: border-box) {
+    @include prefix(box-sizing, $boxsize)
+}
+
+
+@mixin media-query($mq) {
+    @media #{$mq} {
+        @content;
+    }
+}
+
+// ----------------------
+// Clearfix
+// clearfix()
+// ----------------------
+@mixin clearfix{
+    &:after,
+    &:before{
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// ----------------------
+// Border Radius
+// clearfix(value)
+// ----------------------
+@mixin border-radius($radius...) {
+  @include prefix(border-radius, $radius)
+}
+
+
+// ----------------------
+// Gradients
+// ----------------------
+//TODO
+
+
+// ----------------------
+// CSS Arrow
+// arrow(size, color, direction)
+// Available directions: bottom, top, right, left
+// ----------------------
+@mixin arrow($arrow-size, $arrow-color, $arrow-direction) {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $arrow-size;
+  @if ($arrow-direction == bottom) {
+    border-color: $arrow-color transparent transparent transparent;
+    border-top-style: solid;
+  }
+  @if ($arrow-direction == top) {
+    border-color: transparent transparent $arrow-color transparent;
+    border-bottom-style: solid;
+  }
+  @if ($arrow-direction == right) {
+    border-color: transparent transparent transparent $arrow-color;
+    border-left-style: solid;
+  }
+  @if ($arrow-direction == left) {
+    border-color: transparent $arrow-color transparent transparent;
+    border-right-style: solid;
+  }
+}
+
+// ----------------------
+// REM Calculation
+// rem(value, size)
+// Size attribute is optional
+// ----------------------
+@function rem($value, $base-value: $font-size-base)  {
+  $value: ($value / $font-size-base) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+// ----------------------
+// Font Size Rems
+// font-size(value)
+// ----------------------
+@mixin font-size($font-size: 16) {
+    font-size: ($font-size) * 1px;
+    font-size: ($font-size / $font-size-base) * 1rem;
+}
+
+// ----------------------
+// FontFace
+// fontface(name, filename, weight, style, stretch)
+// ----------------------
+@mixin font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
+    @font-face {
+        font-family: '#{$font-family}';
+        src: font-url('#{$font-filename}.eot');
+        src: font-url('#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+        font-url('#{$font-filename}.woff') format('woff'),
+        font-url('#{$font-filename}.ttf') format('truetype'),
+        font-url('#{$font-filename}.svg##{$font-family}') format('svg');
+        font-weight: $font-weight;
+        font-style: $font-style;
+        font-stretch: $font-stretch;
+    }
+}
