@@ -6,7 +6,7 @@
   "author": "Pedro Garcia <pedro@pedrogarcia.me>",
   "repository": {
     "type": "git",
-    "url": "git://github.com:wirecss/wire.css.git"
+    "url": "git://github.com/wirecss/wire.css.git"
   },
   "devDependencies": {
     "gulp": "*",

@@ -8,9 +8,9 @@
   "keywords": [ "sass", "css", "responsive", "rwd", "framework", "mobile", "flexbox"
   ],
   "license": "MIT",
-  "main"        : "wire.css",
+  "main"        : "dist/wire.css",
   "repository"  : {
     "type"      : "git",
-    "url"       : "git://github.com:wirecss/wire.css.git"
+    "url"       : "git://github.com/wirecss/wire.css.git"
   }
 }
