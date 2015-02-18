@@ -1,0 +1,33 @@
+// ----------------------
+//
+// VARIABLES
+//
+// ----------------------
+// ----------------------
+// Defaults Sizes
+// ----------------------
+$wire-font-size-base: 16 !default;
+
+// ----------------------
+// Colors
+// ----------------------
+// ----------------------
+// Brand Colors
+// ----------------------
+$wire-color-primary: #FFC843 !default;
+
+// ----------------------
+// Grid
+// ----------------------
+$wire-max-columns: 12 !default;
+$wire-base-gutter: 1.875rem !default;
+
+// ----------------------
+// Breakpoints
+// ----------------------
+$wire-breakpoints: (
+  "phone"   :    "screen and (max-width: 44.95em)",
+  "tablet"  :    "screen and (min-width: 45em) and (max-width: 63.93em)",
+  "desk"    :    "screen and (min-width: 64em)",
+  "retina"  :    "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)"
+) !default;

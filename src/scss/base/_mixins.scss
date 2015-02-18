@@ -3,60 +3,26 @@
 // MIXINS
 //
 // ----------------------
-
-
-// ----------------------
-// Prefix
-// Use prefix to inster prefix in css property
-// prefix(property, value)
-// prefix(border-radius, 10px)
-// ----------------------
-@mixin prefix($property, $value...) {
-    -webkit-#{$property}: $value;
-       -moz-#{$property}: $value;
-        -ms-#{$property}: $value;
-         -o-#{$property}: $value;
-            #{$property}: $value;
-}
-
 // ----------------------
 // Box Sizing
 // box-sizing(value)
 // ----------------------
 @mixin box-sizing($boxsize: border-box) {
-    @include prefix(box-sizing, $boxsize)
+  @include prefix(box-sizing, $boxsize)
 }
-
 
 @mixin media-query($mq) {
-    @media #{$mq} {
-        @content;
+  @if map-has-key($wire-breakpoints, $mq) {
+    @media #{map-get($wire-breakpoints, $mq)} {
+      @content;
     }
-}
+  }
 
-// ----------------------
-// Clearfix
-// clearfix()
-// ----------------------
-@mixin clearfix{
-    &:after,
-    &:before{
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$mq}`. "
+        + "Please make sure it is defined in `$wire-breakpoints` map.";
+  }
 }
-
-// ----------------------
-// Border Radius
-// clearfix(value)
-// ----------------------
-@mixin border-radius($radius...) {
-  @include prefix(border-radius, $radius)
-}
-
 
 // ----------------------
 // Gradients
@@ -98,8 +64,8 @@
 // rem(value, size)
 // Size attribute is optional
 // ----------------------
-@function rem($value, $base-value: $font-size-base)  {
-  $value: ($value / $font-size-base) * 1rem;
+@function rem($value, $base-value: $wire-font-size-base)  {
+  $value: ($value / $wire-font-size-base) * 1rem;
   @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
   @return $value;
 }
@@ -109,8 +75,8 @@
 // font-size(value)
 // ----------------------
 @mixin font-size($font-size: 16) {
-    font-size: ($font-size) * 1px;
-    font-size: ($font-size / $font-size-base) * 1rem;
+  font-size: ($font-size) * 1px;
+  font-size: ($font-size / $font-size-base) * 1rem;
 }
 
 // ----------------------
@@ -118,15 +84,15 @@
 // fontface(name, filename, weight, style, stretch)
 // ----------------------
 @mixin font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
-    @font-face {
-        font-family: '#{$font-family}';
-        src: font-url('#{$font-filename}.eot');
-        src: font-url('#{$font-filename}.eot?#iefix') format('embedded-opentype'),
-        font-url('#{$font-filename}.woff') format('woff'),
-        font-url('#{$font-filename}.ttf') format('truetype'),
-        font-url('#{$font-filename}.svg##{$font-family}') format('svg');
-        font-weight: $font-weight;
-        font-style: $font-style;
-        font-stretch: $font-stretch;
-    }
+  @font-face {
+      font-family: '#{$font-family}';
+      src: font-url('#{$font-filename}.eot');
+      src: font-url('#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+      font-url('#{$font-filename}.woff') format('woff'),
+      font-url('#{$font-filename}.ttf') format('truetype'),
+      font-url('#{$font-filename}.svg##{$font-family}') format('svg');
+      font-weight: $font-weight;
+      font-style: $font-style;
+      font-stretch: $font-stretch;
+  }
 }

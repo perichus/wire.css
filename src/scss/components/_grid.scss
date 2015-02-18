@@ -1,0 +1,159 @@
+// ----------------------
+//
+// Grid
+//
+// Content:
+// - Core definition
+// - Column Width
+// - Column Order
+// ----------------------
+
+@mixin container() {
+  width: 90%;
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+@if $wire-markup == true{
+  .#{$wire-namespace}container {
+    @include container();
+  }
+}
+
+[class*="col-"] {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+}
+
+@mixin grid() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[data-grid] {
+  @include grid();
+}
+@if $wire-markup == true{
+  .#{$wire-namespace}grid {
+    @include grid();
+  }
+}
+
+@mixin grid-horizontal() {
+  flex-direction: row;
+}
+
+[data-grid*="horizontal"] {
+  @include grid-horizontal();
+}
+@if $wire-markup == true{
+  .#{$wire-namespace}grid--horizontal {
+    @include grid-horizontal();
+  }
+}
+
+@mixin grid-vertical() {
+  flex-direction: column;
+}
+
+[data-grid*="vertical"] {
+  @include grid-vertical();
+}
+@if $wire-markup == true{
+  .#{$wire-namespace}grid--vertical {
+    @include grid-vertical();
+  }
+}
+
+
+@mixin grid-center() {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+[data-grid*="center"] {
+  @include grid-center();
+}
+@if $wire-markup == true{
+  .#{$wire-namespace}grid--center {
+    @include grid-center();
+  }
+}
+
+
+%cols {
+  // padding-left: ($base-gutter / 2);
+  // padding-right: ($base-gutter / 2);
+}
+
+@for $col from 1 through ($wire-max-columns) {
+  @mixin columns($col) {
+    @extend %cols;
+    width: $col * 100% / $wire-max-columns;
+  }
+  %col-#{$col} {
+    @include columns($col);
+  }
+  @if $wire-markup == true{
+    .#{$wire-namespace}col-#{$col} {
+      @include columns($col);
+      @include media-query(phone) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@for $cols from 1 through ($wire-max-columns) {
+  @each $breakpoint in $wire-breakpoints {
+    @include media-query($breakpoint){
+      @if $wire-markup == true{
+        .#{$wire-namespace}col-#{$breakpoint}-#{$cols} {
+          padding-left: ($wire-base-gutter / 2);
+          padding-right: ($wire-base-gutter / 2);
+          width: $cols * 100% / $wire-max-columns;
+        }
+      }
+    }
+  }
+}
+
+@for $cols from 1 through ($wire-max-columns) {
+  %col-offset-#{$cols} {
+    margin-left: $cols * 100% / $wire-max-columns;
+  }
+
+  @if $wire-markup == true {
+    .#{$wire-namespace}col-offset-#{$cols} {
+      @extend %col-offset-#{$cols};
+    }
+  }
+}
+
+
+// %pull-left {
+//     float: left !important;
+// }
+// @if $wire-markup == true {
+//     .pull-left {
+//         @extend %pull-left;
+//     }
+// }
+
+
+// %pull-right {
+//     float: right !important;
+// }
+// @if $wire-markup == true{
+//     .pull-right {
+//         @extend %pull-right;
+//     }
+// }

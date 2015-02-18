@@ -3,14 +3,10 @@
 //
 // Plugins
 //
-var gulp    = require('gulp');
-var sass    = require('gulp-sass');
-var header  = require('gulp-header');
-var notify  = require('gulp-notify');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var minifyCSS = require('gulp-minify-css');
-var pkg     = require('./package.json');
+var gulp              = require('gulp');
+var gulpLoadPlugins   = require('gulp-load-plugins');
+var plugins           = gulpLoadPlugins();
+var pkg               = require('./package.json');
 
 //
 // Paths
@@ -18,43 +14,60 @@ var pkg     = require('./package.json');
 var path = {
     build   : './',
     css     : './css',
+    js      : './js',
     dist    : './dist',
-    cssDist : './dist/css'
+    cssDist : './dist/css',
+    jsDist  : './dist/js'
 };
 
 var source = {
-    //TODO: Add path to js
-    // js      : [],
-    scss    : [ 'scss/wire/base/*.scss',
-                'scss/wire/components/*.scss',
-                'scss/wire/tools/*.scss',
-                'scss/wire/*.scss' ]
+    scss    : [ 'src/scss/base/*.scss',
+                'src/scss/components/*.scss',
+                'src/scss/tools/*.scss',
+                'src/scss/*.scss' ],
+    js      : [ 'src/js/*.js' ]
 };
 
-var banner = ['/**',
+//
+// Header
+//
+var header = ['/**',
   ' * <%= pkg.name %>',
-  ' * @version    v<%= pkg.version %>',
+  ' * @version    <%= pkg.version %>',
   ' * @homepage   <%= pkg.homepage %>',
   ' * @author     <%= pkg.author %>',
   ' * @license    Licensed under <%= pkg.license %>',
   ' */',
   ''].join('\n');
 
-
+//
+// Tasks
+//
 gulp.task('sass', function() {
-    gulp.src('scss/wire/**/*.scss')
-        .pipe(sass())
-        .on('error', function (err) { console.log(err.message); })
-        .pipe(gulp.dest('./dist/css'))
-        .pipe(autoprefixer({ browsers: ['IE 8', 'IE 9', 'Firefox 14', 'last 5 versions', 'Opera 11.1', 'Android 2.2'] }))
-        .pipe(gulp.dest(path.cssDist))
-        .pipe(minifyCSS())
-        .pipe(header(banner, {pkg: pkg}))
-        .pipe(rename('wire.min.css'))
-        .pipe(gulp.dest(path.cssDist))
-        .pipe(notify({ message: pkg.name + ' compiled successful. Happy Code!' , onLast: true}));
+  gulp.src(source.scss)
+      .pipe(plugins.sass())
+      .on('error', function (err) { console.log(err.message); })
+      .pipe(gulp.dest(path.cssDist))
+      .pipe(plugins.autoprefixer({ browsers: ['IE 8', 'IE 9', 'Firefox 14', 'last 5 versions', 'Opera 11.1', 'Android 2.2'] }))
+      .pipe(gulp.dest(path.cssDist))
+      .pipe(plugins.minifyCss())
+      .pipe(plugins.header(header, {pkg: pkg}))
+      .pipe(plugins.rename('wire.min.css'))
+      .pipe(gulp.dest(path.cssDist))
+      .pipe(plugins.notify({ message: pkg.name + ' compiled successful. Happy Code!' , onLast: true}));
+});
+
+gulp.task('js', function() {
+  gulp.src(source.js)
+      .pipe(gulp.dest(path.jsDist))
+      .pipe(plugins.uglify())
+      .pipe(plugins.header(header, {pkg: pkg}))
+      .pipe(plugins.rename('wire.min.js'))
+      .pipe(gulp.dest(path.jsDist))
+      .pipe(plugins.notify({ message: pkg.name + ' JS minified successful. Happy Code!' , onLast: true}));
 });
 
 gulp.task('default', function() {
     gulp.watch(source.scss, ['sass']);
+    gulp.watch(source.js, ['js']);
 });
