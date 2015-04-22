@@ -4,7 +4,20 @@
 //
 // ----------------------
 // ----------------------
-// EMs
+// REM Calculation
+// rem(value, size)
+// Size attribute is optional
+// ----------------------
+@function rem($value, $base-value: $wire-font-size-base)  {
+  $value: ($value / $wire-font-size-base) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+// ----------------------
+// EMs Calculation
+// em(value, size)
+// Size attribute is optional
 // ----------------------
 @function em($value, $context: $wire-font-size-base) {
   @return #{1 / $context * $value}em;
@@ -162,10 +175,8 @@ $va-positions: top, bottom, middle;
 // ----------------------
 // Fixed
 // ----------------------
-.fixed {
+[data-fixed] {
   position: relative;
-  & > * {
-    position: fixed;
-    top: 0;
-  }
+  top: 0;
+  //transition: top .25s ease;
 }

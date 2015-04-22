@@ -4,6 +4,26 @@
 //
 // ----------------------
 // ----------------------
+// Media Queries
+// Use predefined breakpoints defined in $wire-breakpoints or use custom value
+// mq(phone)
+// mq(820px)
+// ----------------------
+@mixin mq($bp) {
+  @if map-has-key($wire-breakpoints, $bp) {
+    @media #{map-get($wire-breakpoints, $bp)} {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: #{$bp}) {
+      @content;
+    }
+  }
+}
+
+// ----------------------
 // Box Sizing
 // box-sizing(value)
 // ----------------------
@@ -11,18 +31,6 @@
   @include prefix(box-sizing, $boxsize)
 }
 
-@mixin media-query($mq) {
-  @if map-has-key($wire-breakpoints, $mq) {
-    @media #{map-get($wire-breakpoints, $mq)} {
-      @content;
-    }
-  }
-
-  @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$mq}`. "
-        + "Please make sure it is defined in `$wire-breakpoints` map.";
-  }
-}
 
 // ----------------------
 // Gradients
@@ -57,17 +65,6 @@
     border-color: transparent $arrow-color transparent transparent;
     border-right-style: solid;
   }
-}
-
-// ----------------------
-// REM Calculation
-// rem(value, size)
-// Size attribute is optional
-// ----------------------
-@function rem($value, $base-value: $wire-font-size-base)  {
-  $value: ($value / $wire-font-size-base) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
-  @return $value;
 }
 
 // ----------------------
