@@ -156,10 +156,10 @@ $va-positions: top, bottom, middle;
 // ----------------------
 %list-unstyled {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
   ul {
-    padding-left: 1em;
+    padding: 0;
   }
   li {
     list-style: none
