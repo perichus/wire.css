@@ -12,19 +12,17 @@ var pkg               = require('./package.json');
 // Paths
 //
 var path = {
-    build   : './',
-    css     : './css',
-    js      : './js',
-    dist    : './dist',
-    cssDist : './dist/css',
-    jsDist  : './dist/js'
+    build     : './',
+    css       : './css',
+    js        : './js',
+    dist      : './dist',
+    cssDist   : './dist/css',
+    jsDist    : './dist/js',
+    sassDist  : './dist/sass'
 };
 
 var source = {
-    scss    : [ 'src/scss/base/*.scss',
-                'src/scss/components/*.scss',
-                'src/scss/tools/*.scss',
-                'src/scss/*.scss' ],
+    scss    : ['src/scss/**/*.scss' ],
     js      : [ 'src/js/*.js' ]
 };
 
@@ -45,6 +43,7 @@ var header = ['/**',
 //
 gulp.task('sass', function() {
   gulp.src(source.scss)
+      .pipe(gulp.dest(path.sassDist))
       .pipe(plugins.sass())
       .on('error', function (err) { console.log(err.message); })
       .pipe(gulp.dest(path.cssDist))

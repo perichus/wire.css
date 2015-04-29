@@ -1,0 +1,21 @@
+// ----------------------
+//
+// BUTTONS
+//
+// ----------------------
+
+// ----------------------
+// Button
+// ----------------------
+%button{
+    padding: em(6);
+    background-color: $wire-color-primary;
+    border: 0;
+}
+
+@if $wire-markup == true{
+    .#{$wire-namespace}button,
+    .#{$wire-namespace}btn,{
+        @extend %button;
+    }
+}
