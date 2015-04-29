@@ -419,7 +419,8 @@
     @include columns($col);
   }
   @if $wire-markup == true {
-    .#{$wire-namespace}col-#{$col} {
+    .#{$wire-namespace}col-#{$col},
+    [data-col~="#{$col}"] {
       @include columns($col);
       @include mq(phone) {
         width: 100%;
@@ -429,10 +430,11 @@
 }
 
 @for $cols from 1 through ($wire-max-columns) {
-  @each $breakpoint in $wire-breakpoints {
-    @include mq($breakpoint){
+  @each $breakpoint, $value in $wire-breakpoints {
+    @include mq($breakpoint) {
       @if $wire-markup == true {
-        .#{$wire-namespace}col-#{$breakpoint}-#{$cols} {
+        .#{$wire-namespace}col-#{$breakpoint}-#{$cols},
+        [data-col-#{$breakpoint}~="#{$cols}"] {
           padding-left: ($wire-base-gutter / 2);
           padding-right: ($wire-base-gutter / 2);
           width: $cols * 100% / $wire-max-columns;
