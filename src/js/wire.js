@@ -53,7 +53,7 @@ wire.Fixed = (function () {
     },
 
     fixElements: function () {
-      if (!phone.matches) {
+      if (!tablet.matches || !phone.matches) {
         if (wire.Fixed.elements().length) {
           Array.prototype.forEach.call(wire.Fixed.elements(), function (e) {
             var parent = e.parentNode,
@@ -97,8 +97,9 @@ if (matchMedia) {
   var phone = window.matchMedia("(max-width: 44.95em)");
   var tablet = window.matchMedia("(min-width: 45em) and (max-width: 63.93em)");
   phone.addListener(wire.Order.isMatch);
-  phone.addListener(wire.Fixed.fixElements);
   tablet.addListener(wire.Order.isMatch);
+  phone.addListener(wire.Fixed.fixElements);
+  tablet.addListener(wire.Fixed.fixElements);
   if (phone.matches) {
     wire.Order.setReorder('phone');
   } else if (tablet.matches) {
