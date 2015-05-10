@@ -60,6 +60,7 @@ gulp.task('js', function() {
   gulp.src(source.js)
       .pipe(gulp.dest(path.jsDist))
       .pipe(plugins.uglify())
+      .on('error', function (err) { console.log(err.message); })
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.js'))
       .pipe(gulp.dest(path.jsDist))
