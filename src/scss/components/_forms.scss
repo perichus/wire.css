@@ -4,21 +4,66 @@
 //
 // ----------------------
 
-.form{
-    fieldset{
+@if $wire-markup == true {
+  .#{$wire-namespace}form{
+    fieldset {
 
     }
-    ul{
-        @extend %list-unstyled;
+    ul {
+      @extend %list-unstyled;
     }
-}
-
-.form--block{
-    .form__field{
-        width: 100%;
-        margin-bottom: 1em;
-        input{
-            width: 100%;
+    .row {
+      @include grid();
+      .field {
+        padding-left: $wire-base-gutter;
+        padding-right: $wire-base-gutter;
+        &:first-child {
+          padding-left: 0;
         }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
     }
+    .field {
+      margin-bottom: 1em;
+      label {
+        display: inline-block;
+        margin-bottom: .3rem;
+      }
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      input[type="text"],
+      input[type="tel"],
+      input[type="url"],
+      select {
+        background: $wire-form-input-bg;
+        border: 1px solid $wire-form-input-border;
+        border-radius: 3px;
+        padding: .5em;
+        height: rem(38);
+        width: 100%;
+        transition: border-color .20s ease-in-out;
+        &:focus {
+          border-color: darken($wire-form-input-border, 25%);
+          outline: none;
+        }
+      }
+      textarea {
+        @extend input[type="text"];
+        height: auto;
+      }
+      input[type="checkbox"],
+      input[type="radio"] {
+        &:focus {
+          border-color: darken($wire-form-input-border, 25%);
+          outline: none;
+        }
+        + label {
+          margin-left: .25rem;
+        }
+      }
+    }
+  }
 }
