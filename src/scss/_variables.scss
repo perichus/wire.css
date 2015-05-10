@@ -7,6 +7,7 @@
 // Defaults Sizes
 // ----------------------
 $wire-font-size-base: 16 !default;
+$wire-line-height-base: 1.45 !default;
 
 // ----------------------
 // Colors
@@ -16,18 +17,22 @@ $wire-font-size-base: 16 !default;
 // ----------------------
 $wire-color-primary: #FFC843 !default;
 
+$wire-form-input-border: #E0E0E0 !default;
+$wire-form-input-bg: #FFF !default;
+
 // ----------------------
 // Grid
 // ----------------------
 $wire-max-columns: 12 !default;
-$wire-base-gutter: 1.875rem !default;
+$wire-base-gutter: 2% !default;
 
 // ----------------------
 // Breakpoints
 // ----------------------
 $wire-breakpoints: (
-  "phone"   :    "screen and (max-width: 44.95em)",
-  "tablet"  :    "screen and (min-width: 45em) and (max-width: 63.93em)",
-  "desk"    :    "screen and (min-width: 64em)",
-  "retina"  :    "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)"
+  "phone"     :    "screen and (max-width: 44.95em)",
+  "retina"    :    "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)",
+  "tablet"    :    "screen and (min-width: 45em) and (max-width: 63.93em)",
+  "desktop"   :    "screen and (min-width: 64em)",
+  "desktopHD" :    "screen and (min-width: 75em)"
 ) !default;
