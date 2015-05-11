@@ -1,19 +1,28 @@
 {
   "name": "wire.css",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "http://wirecss.com",
   "authors": [
     "Pedro García <perichus@gmail.com>"
   ],
   "description": "A simple and lightweight Sass-based Framework",
-  "keywords": [ "sass", "css", "responsive", "rwd", "framework", "mobile", "flexbox"
+  "keywords": [
+    "sass",
+    "css",
+    "responsive",
+    "rwd",
+    "framework",
+    "mobile",
+    "flexbox"
   ],
   "license": "MIT",
-  "main"        : ["dist/css/wire.min.css",
-                   "dist/js/wire.min.js"],
-  "repository"  : {
-    "type"      : "git",
-    "url"       : "git://github.com/wirecss/wire.css.git"
+  "main": [
+    "dist/css/wire.min.css",
+    "dist/js/wire.min.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wirecss/wire.css.git"
   },
   "ignore": [
     "**/.*",

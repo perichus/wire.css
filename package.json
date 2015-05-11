@@ -1,6 +1,6 @@
 {
   "name": "wire.css",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "http://wirecss.com",
   "license": "MIT",
   "author": "Pedro Garcia <pedro@pedrogarcia.me>",
@@ -11,10 +11,12 @@
   "devDependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-bump": "^0.3.0",
     "gulp-header": "*",
     "gulp-load-plugins": "^0.8.0",
     "gulp-minify-css": "*",
     "gulp-notify": "*",
+    "gulp-release-tasks": "0.0.3",
     "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-uglify": "*"
