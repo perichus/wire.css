@@ -24,8 +24,7 @@ wire.Order = (function () {
   var reorder = function (device) {
     var allItems = document.querySelectorAll('[data-order], [data-order-tablet], [data-order-phone]'),
         styledItems = document.querySelectorAll('[style*="order"]');
-    if (_breakpoints.phone.matches || _breakpoints.tablet.matches) {
-      if (device) {
+      if (device == 'phone' || device == 'tablet') {
         var currentDevice = allItems;
         Array.prototype.forEach.call(currentDevice, function (e) {
           if (e.getAttribute('data-order-' + device)) {
@@ -38,15 +37,14 @@ wire.Order = (function () {
             }
           }
         });
+      } else {
+        Array.prototype.forEach.call(styledItems, function (e) {
+          e.style.removeProperty('order');
+        });
+        Array.prototype.forEach.call(allItems, function (e) {
+          e.style.order = e.getAttribute('data-order');
+        });
       }
-    } else {
-      Array.prototype.forEach.call(styledItems, function (e) {
-        e.style.removeProperty('order');
-      });
-      Array.prototype.forEach.call(allItems, function (e) {
-        e.style.order = e.getAttribute('data-order');
-      });
-    }
   };
 
   return {
@@ -116,13 +114,11 @@ if (matchMedia) {
   for (var device in _breakpoints) {
     _breakpoints[device].addListener(wire.Order.match);
     _breakpoints[device].addListener(wire.Fixed.fix);
-  }
-  if (_breakpoints.phone.matches) {
-    wire.Order.reorder('phone');
-  } else if (_breakpoints.tablet.matches) {
-    wire.Order.reorder('tablet');
-  } else {
-    wire.Order.reorder();
+    if (_breakpoints[device].matches) {
+      wire.Order.reorder(device);
+    } else {
+      wire.Order.reorder();
+    }
   }
 }
 
