@@ -8,14 +8,55 @@
 // Button
 // ----------------------
 %button{
-    padding: em(6);
-    background-color: $wire-color-primary;
-    border: 0;
+  background-color: $wire-button-bg;
+  border: 0;
+  border-radius: $wire-border-radius;
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: bottom;
+  padding: em(7.5) em(15);
+  transition: background-color .2s ease-out;
+  &:hover {
+    color: inherit;
+    background-color: darken($wire-button-bg, 15%);
+  }
+  &.small {
+    font-size: .8rem;
+  }
+  &.large {
+    font-size: 1.2rem;
+  }
+  &.x-large {
+    font-size: 1.5rem;
+  }
+  &.alt {
+    color: $wire-button-alt-color;
+    background-color: $wire-button-alt-bg;
+    &:hover {
+      background-color: darken($wire-button-alt-bg, 15%);
+    }
+  }
 }
 
 @if $wire-markup == true{
-    .#{$wire-namespace}button,
-    .#{$wire-namespace}btn,{
-        @extend %button;
+  .#{$wire-namespace}button,
+  .#{$wire-namespace}btn,
+  input[type="submit"],
+  input[type="button"] {
+      @extend %button;
+  }
+  input[type="submit"][disabled],
+  input[type="button"][disabled],
+  .#{$wire-namespace}button[disabled],
+  .#{$wire-namespace}btn[disabled],
+  .#{$wire-namespace}button.disabled,
+  .#{$wire-namespace}btn.disabled {
+    cursor: not-allowed;
+    color: lighten($wire-button-alt-color, 5.5%);
+    background-color: lighten($wire-button-alt-bg, 5.5%);
+    &:hover {
+      color: lighten($wire-button-alt-color, 5.5%);
+      background-color: lighten($wire-button-alt-bg, 5.5%);
     }
+  }
 }

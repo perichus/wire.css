@@ -9,6 +9,8 @@
 $wire-font-size-base: 16 !default;
 $wire-line-height-base: 1.45 !default;
 
+$wire-border-radius: 3px !default;
+
 // ----------------------
 // Colors
 // ----------------------
@@ -16,6 +18,12 @@ $wire-line-height-base: 1.45 !default;
 // Brand Colors
 // ----------------------
 $wire-color-primary: #FFC843 !default;
+$wire-color-secundary: #7C7C7C !default;
+$wire-color-alt: #E0E0E0 !default;
+
+$wire-button-bg: $wire-color-primary;
+$wire-button-alt-bg: $wire-color-alt;
+$wire-button-alt-color: $wire-color-secundary;
 
 $wire-form-input-border: #E0E0E0 !default;
 $wire-form-input-bg: #FFF !default;
