@@ -103,6 +103,32 @@ $va-positions: top, bottom, middle;
 }
 
 // ----------------------
+// Show Elements on Device
+// ----------------------
+@each $breakpoint, $value in $wire-breakpoints {
+  @include mq($breakpoint) {
+    @if $wire-markup == true {
+      .#{$wire-namespace}visible-#{$breakpoint} {
+        display: block !important;
+      }
+    }
+  }
+}
+
+// ----------------------
+// Hide Elements on Device
+// ----------------------
+@each $breakpoint, $value in $wire-breakpoints {
+  @include mq($breakpoint) {
+    @if $wire-markup == true {
+      .#{$wire-namespace}hidden-#{$breakpoint} {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// ----------------------
 // Invisible
 // ----------------------
 %invisible {
