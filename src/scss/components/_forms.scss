@@ -6,8 +6,15 @@
 
 @if $wire-markup == true {
   .#{$wire-namespace}form{
-    fieldset {
-
+    &[data-form~="horizontal"] {
+      @include grid();
+      @include grid-va-bottom();
+      .field {
+        padding-right: $wire-base-gutter;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
     }
     ul {
       @extend %list-unstyled;
@@ -17,6 +24,10 @@
       .field {
         padding-left: $wire-base-gutter;
         padding-right: $wire-base-gutter;
+        @include mq(phone) {
+          padding-left: 0;
+          padding-right: 0;
+        }
         &:first-child {
           padding-left: 0;
         }
@@ -62,6 +73,8 @@
         }
         + label {
           margin-left: .25rem;
+          max-width: 88%;
+          vertical-align: top;
         }
       }
     }
