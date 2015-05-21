@@ -1,6 +1,6 @@
 {
   "name": "wire.css",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "homepage": "http://wirecss.com",
   "authors": [
     "Pedro García <perichus@gmail.com>"
@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/wirecss/wire.css.git"
+    "url": "git://github.com/perichus/wire.css.git"
   },
   "ignore": [
     "**/.*",

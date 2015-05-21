@@ -100,7 +100,7 @@ wire.Fixed = (function () {
       } else {
         reset();
       }
-    }
+    };
 
   return {
     elements: elements,

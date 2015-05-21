@@ -54,15 +54,16 @@ gulp.task('sass', function() {
       .pipe(plugins.notify({ message: pkg.name + ' compiled successful. Happy Code!' , onLast: true}));
 });
 
-gulp.task('build', function() {
-  gulp.src(path.cssDist + '/*.css')
-      .pipe(gulp.dest(path.cssDist))
+gulp.task('distSass', function() {
+  gulp.src(path.cssDist + '/wire.css')
       .pipe(plugins.minifyCss())
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.css'))
       .pipe(gulp.dest(path.cssDist))
       .pipe(plugins.notify({ message: pkg.name + ' CSS minified successful. Happy Code!' , onLast: true}));
+});
 
+gulp.task('distJs', function() {
   gulp.src(source.js)
       .pipe(gulp.dest(path.jsDist))
       .pipe(plugins.uglify())
@@ -74,5 +75,12 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', function() {
-    gulp.watch(source.scss, ['sass']);
+  gulp.watch(source.scss, ['sass']);
+});
+
+gulp.task('build', ['distSass', 'distJs']);
+
+gulp.task('dev', function() {
+  gulp.watch(source.scss, ['sass', 'distSass']);
+  gulp.watch(source.js, ['distJs']);
 });

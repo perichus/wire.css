@@ -402,6 +402,46 @@ th {
   display: none !important;
   visibility: hidden; }
 
+@media screen and (max-width: 44.95em) {
+  .visible-phone {
+    display: block !important; } }
+
+@media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
+  .visible-retina {
+    display: block !important; } }
+
+@media screen and (min-width: 45em) and (max-width: 63.93em) {
+  .visible-tablet {
+    display: block !important; } }
+
+@media screen and (min-width: 64em) {
+  .visible-desktop {
+    display: block !important; } }
+
+@media screen and (min-width: 75em) {
+  .visible-desktopHD {
+    display: block !important; } }
+
+@media screen and (max-width: 44.95em) {
+  .hidden-phone {
+    display: none !important; } }
+
+@media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
+  .hidden-retina {
+    display: none !important; } }
+
+@media screen and (min-width: 45em) and (max-width: 63.93em) {
+  .hidden-tablet {
+    display: none !important; } }
+
+@media screen and (min-width: 64em) {
+  .hidden-desktop {
+    display: none !important; } }
+
+@media screen and (min-width: 75em) {
+  .hidden-desktopHD {
+    display: none !important; } }
+
 .invisible {
   visibility: hidden; }
 
@@ -444,10 +484,70 @@ html {
           box-sizing: inherit; }
 
 .button,
-.btn {
-  padding: 0.375em;
+.btn,
+input[type="submit"],
+input[type="button"] {
   background-color: #FFC843;
-  border: 0; }
+  border: 0;
+  border-radius: 3px;
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 0.46875em 0.9375em;
+  -webkit-transition: background-color 0.2s ease-out;
+     -moz-transition: background-color 0.2s ease-out;
+       -o-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out; }
+  .button:hover,
+  .btn:hover,
+  input[type="submit"]:hover,
+  input[type="button"]:hover {
+    color: inherit;
+    background-color: #f5ae00; }
+  .small.button,
+  .small.btn,
+  input.small[type="submit"],
+  input.small[type="button"] {
+    font-size: .8rem; }
+  .large.button,
+  .large.btn,
+  input.large[type="submit"],
+  input.large[type="button"] {
+    font-size: 1.2rem; }
+  .x-large.button,
+  .x-large.btn,
+  input.x-large[type="submit"],
+  input.x-large[type="button"] {
+    font-size: 1.5rem; }
+  .alt.button,
+  .alt.btn,
+  input.alt[type="submit"],
+  input.alt[type="button"] {
+    color: #7C7C7C;
+    background-color: #E0E0E0; }
+    .alt.button:hover,
+    .alt.btn:hover,
+    input.alt[type="submit"]:hover,
+    input.alt[type="button"]:hover {
+      background-color: #bababa; }
+
+input[type="submit"][disabled],
+input[type="button"][disabled],
+.button[disabled],
+.btn[disabled],
+.button.disabled,
+.btn.disabled {
+  cursor: not-allowed;
+  color: #8a8a8a;
+  background-color: #eeeeee; }
+  input[type="submit"][disabled]:hover,
+  input[type="button"][disabled]:hover,
+  .button[disabled]:hover,
+  .btn[disabled]:hover,
+  .button.disabled:hover,
+  .btn.disabled:hover {
+    color: #8a8a8a;
+    background-color: #eeeeee; }
 
 .container {
   width: 90%; }
@@ -1408,6 +1508,25 @@ mark {
   background: rgba(255, 200, 67, 0.16);
   padding: .2em; }
 
+.form[data-form~="horizontal"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+     -moz-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+  .form[data-form~="horizontal"] .field {
+    padding-right: 2%; }
+    .form[data-form~="horizontal"] .field:last-child {
+      padding-right: 0; }
+
 .form .row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1420,6 +1539,10 @@ mark {
   .form .row .field {
     padding-left: 2%;
     padding-right: 2%; }
+    @media screen and (max-width: 44.95em) {
+      .form .row .field {
+        padding-left: 0;
+        padding-right: 0; } }
     .form .row .field:first-child {
       padding-left: 0; }
     .form .row .field:last-child {
@@ -1464,4 +1587,6 @@ mark {
     outline: none; }
   .form .field input[type="checkbox"] + label,
   .form .field input[type="radio"] + label {
-    margin-left: .25rem; }
+    margin-left: .25rem;
+    max-width: 88%;
+    vertical-align: top; }
