@@ -1,6 +1,5 @@
 /**
  * wire.css
- * @version    v0.1.0
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me>
  * @license    Licensed under MIT
@@ -60,6 +59,7 @@ $wire-debug:         false !default;
 
 @import "components/typography";
 @import "components/forms";
+@import "components/list";
 
 // Debug
 @import "tools/debug";
