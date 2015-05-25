@@ -1,6 +1,5 @@
 /**
  * wire.css
- * @version    v0.1.0
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me>
  * @license    Licensed under MIT
@@ -451,23 +450,6 @@ th {
   text-shadow: none;
   background-color: transparent;
   border: 0; }
-
-.list--inline {
-  display: inline-block;
-  margin-left: -5px; }
-  .list--inline > li {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px; }
-
-.list--unstyled, .form ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-  .list--unstyled ul, .form ul ul {
-    padding: 0; }
-  .list--unstyled li, .form ul li {
-    list-style: none; }
 
 [data-fixed] {
   position: relative;
@@ -1590,3 +1572,92 @@ mark {
     margin-left: .25rem;
     max-width: 88%;
     vertical-align: top; }
+
+dl dt {
+  font-weight: 700; }
+
+dl dd {
+  margin-left: 0; }
+
+dl.list--horizontal,
+dl[data-list~="horizontal"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  dl.list--horizontal dt,
+  dl[data-list~="horizontal"] dt {
+    text-align: right;
+    padding-right: 1em;
+    width: 30%; }
+  dl.list--horizontal dd,
+  dl[data-list~="horizontal"] dd {
+    width: 70%; }
+
+.list--inline {
+  display: inline-block;
+  padding: 0; }
+  .list--inline > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px; }
+    .list--inline > li:first-child {
+      padding-left: 0; }
+    .list--inline > li:last-child {
+      padding-right: 0; }
+
+.form ul, .list--unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .form ul ul, .list--unstyled ul {
+    padding: 0; }
+  .form ul li, .list--unstyled li {
+    list-style: none; }
+
+table {
+  width: 100%; }
+  table th,
+  table td {
+    padding: .5em; }
+  table th {
+    text-align: left; }
+  table thead th {
+    border-bottom: 1px solid #D2D2D2; }
+  table tfoot {
+    border-top: 1px solid #D2D2D2; }
+  @media screen and (max-width: 44.95em) {
+    table thead,
+    table th {
+      display: none; }
+    table tbody tr {
+      display: block;
+      border-bottom: 1px solid #D2D2D2; }
+      table tbody tr:last-child {
+        border-bottom: 0; }
+    table tbody td {
+      display: block;
+      margin-left: 8em; }
+      table tbody td::before {
+        content: attr(data-th) ": ";
+        font-weight: 700;
+        display: inline-block;
+        margin-left: -8em;
+        min-width: 8em; }
+    table tfoot td {
+      display: block; } }
+  table[data-table~="striped"] tr:nth-child(even) {
+    background: #E5E5E5; }
+
+img {
+  max-width: 100%;
+  width: 100%; }
+  img.border {
+    padding: .2em;
+    border: 1px solid #E0E0E0; }
+  img.round {
+    border-radius: 100%; }
