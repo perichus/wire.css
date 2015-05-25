@@ -60,6 +60,7 @@ $wire-debug:         false !default;
 @import "components/typography";
 @import "components/forms";
 @import "components/list";
+@import "components/tables";
 
 // Debug
 @import "tools/debug";

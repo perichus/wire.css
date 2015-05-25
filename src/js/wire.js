@@ -110,6 +110,41 @@ wire.Fixed = (function () {
 
 })();
 
+// Responsive Tables Module
+wire.ResponsiveTable = (function () {
+  var elements = function () {
+    return document.querySelectorAll('[data-table~="responsive"]');
+  };
+
+  var addData = function () {
+    Array.prototype.forEach.call(elements(), function (e) {
+      var thElements = e.getElementsByTagName("th");
+      var thText = [];
+      Array.prototype.forEach.call(thElements, function (th) {
+        thText.push(th.innerText);
+      });
+    
+      tbodyElements = e.getElementsByTagName('tbody');
+      Array.prototype.forEach.call(tbodyElements, function (tbody) {
+        trElements = tbody.getElementsByTagName('tr');
+        Array.prototype.forEach.call(trElements, function (tr) {
+          tdElements = tr.getElementsByTagName('td');
+          tdCount = tdElements.length;
+          for (var i = 0; i < tdCount; ++i) {
+            tdElements[i].setAttribute('data-th', thText[i]);
+          }
+        });
+      });
+    });
+  };
+
+  return {
+    elements: elements,
+    addData: addData
+  };
+
+})();
+
 if (matchMedia) {
   for (var device in _breakpoints) {
     _breakpoints[device].addListener(wire.Order.match);
@@ -123,3 +158,4 @@ if (matchMedia) {
 }
 
 if (wire.Fixed.elements().length) wire.Fixed.fix();
+if (wire.ResponsiveTable.elements().length) wire.ResponsiveTable.addData();
