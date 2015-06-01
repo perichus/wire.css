@@ -2,11 +2,11 @@ var wire = wire || {};
 
 // Variables
 var _breakpoints = {
-  phone     :    window.matchMedia("screen and (max-width: 44.95em)"),
-  retina    :    window.matchMedia("(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)"),
-  tablet    :    window.matchMedia("screen and (min-width: 45em) and (max-width: 63.93em)"),
-  desktop   :    window.matchMedia("screen and (min-width: 64em)"),
-  desktopHD :    window.matchMedia("screen and (min-width: 75em)")
+  phone: window.matchMedia('screen and (max-width: 44.95em)'),
+  retina: window.matchMedia('(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)'),
+  tablet: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
+  desktop: window.matchMedia('screen and (min-width: 64em)'),
+  desktopHD: window.matchMedia('screen and (min-width: 75em)')
 };
 
 // Order Module
@@ -24,7 +24,7 @@ wire.Order = (function () {
   var reorder = function (device) {
     var allItems = document.querySelectorAll('[data-order], [data-order-tablet], [data-order-phone]'),
         styledItems = document.querySelectorAll('[style*="order"]');
-      if (device == 'phone' || device == 'tablet') {
+      if (device === 'phone' || device === 'tablet') {
         var currentDevice = allItems;
         Array.prototype.forEach.call(currentDevice, function (e) {
           if (e.getAttribute('data-order-' + device)) {
@@ -107,7 +107,7 @@ wire.Fixed = (function () {
     reset: reset,
     fix: fix
   };
-
+  
 })();
 
 // Responsive Tables Module
@@ -118,18 +118,18 @@ wire.ResponsiveTable = (function () {
 
   var addData = function () {
     Array.prototype.forEach.call(elements(), function (e) {
-      var thElements = e.getElementsByTagName("th");
+      var thElements = e.getElementsByTagName('th');
       var thText = [];
       Array.prototype.forEach.call(thElements, function (th) {
         thText.push(th.innerText);
       });
     
-      tbodyElements = e.getElementsByTagName('tbody');
+      var tbodyElements = e.getElementsByTagName('tbody');
       Array.prototype.forEach.call(tbodyElements, function (tbody) {
-        trElements = tbody.getElementsByTagName('tr');
+        var trElements = tbody.getElementsByTagName('tr');
         Array.prototype.forEach.call(trElements, function (tr) {
-          tdElements = tr.getElementsByTagName('td');
-          tdCount = tdElements.length;
+          var tdElements = tr.getElementsByTagName('td'),
+              tdCount = tdElements.length;
           for (var i = 0; i < tdCount; ++i) {
             tdElements[i].setAttribute('data-th', thText[i]);
           }
@@ -145,7 +145,7 @@ wire.ResponsiveTable = (function () {
 
 })();
 
-if (matchMedia) {
+if (window.matchMedia) {
   for (var device in _breakpoints) {
     _breakpoints[device].addListener(wire.Order.match);
     _breakpoints[device].addListener(wire.Fixed.fix);
