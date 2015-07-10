@@ -19,7 +19,7 @@ var path = {
     dist      : './dist',
     cssDist   : './dist/css',
     jsDist    : './dist/js',
-    sassDist  : './dist/sass'
+    sassDist  : './dist/scss'
 };
 
 var source = {
