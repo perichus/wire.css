@@ -10,14 +10,14 @@ var _breakpoints = {
 };
 
 // Order Module
-wire.Order = (function () {
+wire.order = (function () {
   var match = function () {
     if (_breakpoints.phone.matches) {
-      wire.Order.reorder('phone');
+      wire.order.reorder('phone');
     } else if (_breakpoints.tablet.matches) {
-      wire.Order.reorder('tablet');
+      wire.order.reorder('tablet');
     } else {
-      wire.Order.reorder();
+      wire.order.reorder();
     }
   };
 
@@ -55,7 +55,7 @@ wire.Order = (function () {
 })();
 
 // Fixed Module
-wire.Fixed = (function () {
+wire.fixed = (function () {
   var elements = function () {
     return document.querySelectorAll('[data-fixed]');
   };
@@ -70,7 +70,7 @@ wire.Fixed = (function () {
     });
   };
 
-  var fix = function () {
+  var fixItems = function () {
       if (!_breakpoints.tablet.matches && !_breakpoints.phone.matches) {
         if (elements().length) {
           Array.prototype.forEach.call(elements(), function (e) {
@@ -105,13 +105,13 @@ wire.Fixed = (function () {
   return {
     elements: elements,
     reset: reset,
-    fix: fix
+    fixItems: fixItems
   };
-  
+
 })();
 
 // Responsive Tables Module
-wire.ResponsiveTable = (function () {
+wire.responsiveTable = (function () {
   var elements = function () {
     return document.querySelectorAll('[data-table~="responsive"]');
   };
@@ -121,9 +121,9 @@ wire.ResponsiveTable = (function () {
       var thElements = e.getElementsByTagName('th');
       var thText = [];
       Array.prototype.forEach.call(thElements, function (th) {
-        thText.push(th.innerText);
+        thText.push(th.textContent);
       });
-    
+
       var tbodyElements = e.getElementsByTagName('tbody');
       Array.prototype.forEach.call(tbodyElements, function (tbody) {
         var trElements = tbody.getElementsByTagName('tr');
@@ -147,15 +147,15 @@ wire.ResponsiveTable = (function () {
 
 if (window.matchMedia) {
   for (var device in _breakpoints) {
-    _breakpoints[device].addListener(wire.Order.match);
-    _breakpoints[device].addListener(wire.Fixed.fix);
+    _breakpoints[device].addListener(wire.order.match);
+    _breakpoints[device].addListener(wire.fixed.fixItems);
     if (_breakpoints[device].matches) {
-      wire.Order.reorder(device);
+      wire.order.reorder(device);
     } else {
-      wire.Order.reorder();
+      wire.order.reorder();
     }
   }
 }
 
-if (wire.Fixed.elements().length) wire.Fixed.fix();
-if (wire.ResponsiveTable.elements().length) wire.ResponsiveTable.addData();
+if (wire.fixed.elements().length) wire.fixed.fixItems();
+if (wire.responsiveTable.elements().length) wire.responsiveTable.addData();
