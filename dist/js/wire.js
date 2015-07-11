@@ -2,49 +2,52 @@ var wire = wire || {};
 
 // Variables
 var _breakpoints = {
-  phone: window.matchMedia('screen and (max-width: 44.95em)'),
-  retina: window.matchMedia('(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)'),
-  tablet: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
+  desktopHD: window.matchMedia('screen and (min-width: 75em)'),
   desktop: window.matchMedia('screen and (min-width: 64em)'),
-  desktopHD: window.matchMedia('screen and (min-width: 75em)')
+  tablet: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
+  phone: window.matchMedia('screen and (max-width: 44.95em)')
 };
 
 // Order Module
 wire.order = (function () {
   var match = function () {
-    if (_breakpoints.phone.matches) {
-      wire.order.reorder('phone');
-    } else if (_breakpoints.tablet.matches) {
-      wire.order.reorder('tablet');
-    } else {
-      wire.order.reorder();
+    for (var device in _breakpoints) {
+      if (_breakpoints[device].matches) {
+        if (device === 'desktop') {
+          wire.order.reorder();
+        } else {
+          wire.order.reorder(device);
+        }
+      }
     }
   };
 
   var reorder = function (device) {
-    var allItems = document.querySelectorAll('[data-order], [data-order-tablet], [data-order-phone]'),
-        styledItems = document.querySelectorAll('[style*="order"]');
-      if (device === 'phone' || device === 'tablet') {
-        var currentDevice = allItems;
-        Array.prototype.forEach.call(currentDevice, function (e) {
-          if (e.getAttribute('data-order-' + device)) {
-            e.style.order = e.getAttribute('data-order-' + device);
-          } else {
-            if (e.getAttribute('data-order')) {
-              e.style.order = e.getAttribute('data-order');
-            } else {
-              e.style.removeProperty('order');
-            }
-          }
-        });
-      } else {
-        Array.prototype.forEach.call(styledItems, function (e) {
-          e.style.removeProperty('order');
-        });
-        Array.prototype.forEach.call(allItems, function (e) {
-          e.style.order = e.getAttribute('data-order');
-        });
+    if (device) {
+      var orderItems = ['[data-order]'];
+      for (var _bp in _breakpoints) {
+        orderItems.push('[data-order-' + _bp + ']')
       }
+      Array.prototype.forEach.call(document.querySelectorAll(orderItems), function (e) {
+        if (e.getAttribute('data-order-' + device)) {
+          e.style.order = e.getAttribute('data-order-' + device);
+        } else {
+          if (e.getAttribute('data-order')) {
+            e.style.order = e.getAttribute('data-order');
+          } else {
+            e.style.removeProperty('order');
+          }
+        }
+      });
+    } else {
+      var styledItems = document.querySelectorAll('[style*="order"]');
+      Array.prototype.forEach.call(styledItems, function (e) {
+         e.style.removeProperty('order');
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-order]'), function (e) {
+        e.style.order = e.getAttribute('data-order');
+      });
+    }
   };
 
   return {
@@ -151,8 +154,6 @@ if (window.matchMedia) {
     _breakpoints[device].addListener(wire.fixed.fixItems);
     if (_breakpoints[device].matches) {
       wire.order.reorder(device);
-    } else {
-      wire.order.reorder();
     }
   }
 }
