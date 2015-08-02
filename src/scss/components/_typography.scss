@@ -58,3 +58,15 @@ mark {
   background: rgba($wire-color-primary, .16);
   padding: .2em;
 }
+
+// ----------------------
+// Links
+// ----------------------
+a {
+  color: $wire-link-color;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: $wire-link-color-hover;
+  }
+}
