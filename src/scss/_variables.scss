@@ -1,5 +1,37 @@
 // ----------------------
 //
+// SETTINGS
+//
+// ----------------------
+// ----------------------
+// Namespace
+//
+// To avoid conflicts, Wire used custom namespace,
+// Set 'wire-' to avoid conflicts with others frameworks. '' by default.
+// ----------------------
+$wire-namespace:     '' !default;
+
+// ----------------------
+// Markup Mode
+//
+// Compile Wire.css with markup, if you only need extend
+// the styles in Sass, set this in 'false'.
+// Set 'true' or 'false'. True by default.
+// ----------------------
+$wire-markup:        true !default;
+
+// ----------------------
+// Debug Mode
+//
+// Highlight markup errors.
+// Set 'true' or 'false'. False by default.
+// ----------------------
+$wire-debug:         false !default;
+
+
+
+// ----------------------
+//
 // VARIABLES
 //
 // ----------------------
@@ -21,6 +53,9 @@ $wire-color-primary: #FFC843 !default;
 $wire-color-secundary: #7C7C7C !default;
 $wire-color-alt: #E0E0E0 !default;
 
+$wire-link-color: $wire-color-primary;
+$wire-link-color-hover: darken($wire-color-primary, 30%);
+
 $wire-button-bg: $wire-color-primary;
 $wire-button-alt-bg: $wire-color-alt;
 $wire-button-alt-color: $wire-color-secundary;
@@ -30,6 +65,7 @@ $wire-form-input-bg: #FFF !default;
 
 $wire-table-tr-even-bg: #E5E5E5 !default;
 $wire-table-border-color: #D2D2D2 !default;
+
 // ----------------------
 // Grid
 // ----------------------
