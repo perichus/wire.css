@@ -26,7 +26,7 @@ wire.order = (function () {
     if (device) {
       var orderItems = ['[data-order]'];
       for (var _bp in _breakpoints) {
-        orderItems.push('[data-order-' + _bp + ']')
+        orderItems.push('[data-order-' + _bp + ']');
       }
       Array.prototype.forEach.call(document.querySelectorAll(orderItems), function (e) {
         if (e.getAttribute('data-order-' + device)) {
@@ -131,7 +131,7 @@ wire.responsiveTable = (function () {
       Array.prototype.forEach.call(tbodyElements, function (tbody) {
         var trElements = tbody.getElementsByTagName('tr');
         Array.prototype.forEach.call(trElements, function (tr) {
-          var tdElements = tr.getElementsByTagName('td'),
+          var tdElements = tbody.getElementsByTagName('td'),
               tdCount = tdElements.length;
           for (var i = 0; i < tdCount; ++i) {
             tdElements[i].setAttribute('data-th', thText[i]);
