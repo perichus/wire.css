@@ -477,6 +477,7 @@ body {
 .btn,
 input[type="submit"],
 input[type="button"] {
+  color: #7C7C7C;
   background-color: #FFC843;
   border: 0;
   border-radius: 3px;
@@ -540,7 +541,8 @@ input[type="button"][disabled],
     background-color: #eeeeee; }
 
 .container {
-  width: 90%; }
+  width: 90%;
+  height: 100%; }
   .container:before,
   .container:after {
     display: table;
@@ -552,7 +554,8 @@ input[type="button"][disabled],
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 [data-grid] {
   display: -webkit-box;
@@ -562,7 +565,8 @@ input[type="button"][disabled],
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  height: 100%; }
 
 .grid {
   display: -webkit-box;
@@ -572,9 +576,10 @@ input[type="button"][disabled],
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  height: 100%; }
 
-[data-grid~="horizontal"] {
+[data-grid~="row"] {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -583,7 +588,7 @@ input[type="button"][disabled],
       -ms-flex-direction: row;
           flex-direction: row; }
 
-.grid--horizontal {
+.grid--row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -592,7 +597,7 @@ input[type="button"][disabled],
       -ms-flex-direction: row;
           flex-direction: row; }
 
-[data-grid~="horizontal-reverse"] {
+[data-grid~="row-reverse"] {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -601,7 +606,7 @@ input[type="button"][disabled],
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse; }
 
-.grid--horizontal-reverse {
+.grid--row-reverse {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -610,7 +615,7 @@ input[type="button"][disabled],
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse; }
 
-[data-grid~="vertical"] {
+[data-grid~="column"] {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -619,7 +624,7 @@ input[type="button"][disabled],
       -ms-flex-direction: column;
           flex-direction: column; }
 
-.grid--vertical {
+.grid--column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -628,7 +633,7 @@ input[type="button"][disabled],
       -ms-flex-direction: column;
           flex-direction: column; }
 
-[data-grid~="vertical-reverse"] {
+[data-grid~="column-reverse"] {
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: column-reverse;
@@ -637,7 +642,7 @@ input[type="button"][disabled],
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse; }
 
-.grid--vertical-reverse {
+.grid--column-reverse {
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: column-reverse;
@@ -932,14 +937,14 @@ input[type="button"][disabled],
         -ms-flex-pack: center;
             justify-content: center; }
 
-.pull-left {
+.push-left {
   -webkit-box-ordinal-group: -99 !important;
   -webkit-order: -100 !important;
      -moz-box-ordinal-group: -99 !important;
       -ms-flex-order: -100 !important;
           order: -100 !important; }
 
-.pull-right {
+.push-right {
   -webkit-box-ordinal-group: 101 !important;
   -webkit-order: 100 !important;
      -moz-box-ordinal-group: 101 !important;
@@ -1552,6 +1557,7 @@ a {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  height: 100%;
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
      -moz-box-align: end;
@@ -1570,7 +1576,8 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  height: 100%; }
   .form .row .field {
     padding-left: 2%;
     padding-right: 2%; }
@@ -1641,7 +1648,8 @@ dl[data-list~="horizontal"] {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  height: 100%; }
   dl.list--horizontal dt,
   dl[data-list~="horizontal"] dt {
     text-align: right;

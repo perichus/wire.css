@@ -7,11 +7,12 @@
 // - Direction
 // - Wrap
 // - Align
-// - Vertical Align
+// - column Align
 // ----------------------
 
 @mixin container() {
   width: 90%;
+  height: 100%;
   &:before,
   &:after {
     display: table;
@@ -31,6 +32,7 @@
 [class*="col-"] {
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
 }
 
 
@@ -39,6 +41,7 @@
 @mixin grid() {
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 [data-grid] {
@@ -52,55 +55,55 @@
 
 // $Direction
 // Row
-@mixin grid-horizontal() {
+@mixin grid-row() {
   flex-direction: row;
 }
 
-[data-grid~="horizontal"] {
-  @include grid-horizontal();
+[data-grid~="row"] {
+  @include grid-row();
 }
 @if $wire-markup == true {
-  .#{$wire-namespace}grid--horizontal {
-    @include grid-horizontal();
+  .#{$wire-namespace}grid--row {
+    @include grid-row();
   }
 }
 
-@mixin grid-horizontal-reverse() {
+@mixin grid-row-reverse() {
   flex-direction: row-reverse;
 }
 
-[data-grid~="horizontal-reverse"] {
-  @include grid-horizontal-reverse();
+[data-grid~="row-reverse"] {
+  @include grid-row-reverse();
 }
 @if $wire-markup == true {
-  .#{$wire-namespace}grid--horizontal-reverse {
-    @include grid-horizontal-reverse();
+  .#{$wire-namespace}grid--row-reverse {
+    @include grid-row-reverse();
   }
 }
 
-@mixin grid-vertical() {
+@mixin grid-column() {
   flex-direction: column;
 }
 
-[data-grid~="vertical"] {
-  @include grid-vertical();
+[data-grid~="column"] {
+  @include grid-column();
 }
 @if $wire-markup == true {
-  .#{$wire-namespace}grid--vertical {
-    @include grid-vertical();
+  .#{$wire-namespace}grid--column {
+    @include grid-column();
   }
 }
 
-@mixin grid-vertical-reverse() {
+@mixin grid-column-reverse() {
   flex-direction: column-reverse;
 }
 
-[data-grid~="vertical-reverse"] {
-  @include grid-vertical-reverse();
+[data-grid~="column-reverse"] {
+  @include grid-column-reverse();
 }
 @if $wire-markup == true {
-  .#{$wire-namespace}grid--vertical-reverse {
-    @include grid-vertical-reverse();
+  .#{$wire-namespace}grid--column-reverse {
+    @include grid-column-reverse();
   }
 }
 
@@ -218,7 +221,7 @@
   }
 }
 
-// $Vertical Align
+// $column Align
 // Top
 @mixin grid-va-top() {
   align-items: flex-start;
@@ -397,23 +400,38 @@
   }
 }
 
-%pull-left {
-    order: -100 !important;
-}
-@if $wire-markup == true {
-    .pull-left {
-        @extend %pull-left;
-    }
+@mixin order($position, $force: false) {
+  @if $force == true {
+      order: $position !important;
+  } @else {
+      order: $position;
+  }
 }
 
+@mixin push-left() {
+  @include order(-100, true);
+}
 
-%pull-right {
-    order: 100 !important;
+%push-left {
+  @include push-left;
 }
 @if $wire-markup == true {
-    .pull-right {
-        @extend %pull-right;
-    }
+  .push-left {
+      @extend %push-left;
+  }
+}
+
+@mixin push-right() {
+  @include order(100, true);
+}
+
+%push-right {
+  @include push-right;
+}
+@if $wire-markup == true {
+  .push-right {
+      @extend %push-right;
+  }
 }
 
 // Core Width
