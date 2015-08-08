@@ -541,7 +541,7 @@ input[type="button"][disabled],
     background-color: #eeeeee; }
 
 .container {
-  width: 90%;
+  width: 100%;
   height: 100%; }
   .container:before,
   .container:after {
@@ -549,14 +549,17 @@ input[type="button"][disabled],
     content: " "; }
   .container:after {
     clear: both; }
+  .container > .grid,
+  .container > [data-grid] {
+    height: 100%; }
 
 [class*="col-"] {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
+.grid,
 [data-grid] {
   display: -webkit-box;
   display: -webkit-flex;
@@ -565,19 +568,7 @@ input[type="button"][disabled],
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  height: 100%; }
-
-.grid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  height: 100%; }
+          flex-wrap: wrap; }
 
 [data-grid~="row"] {
   -webkit-box-orient: horizontal;
@@ -1503,6 +1494,16 @@ input[type="button"][disabled],
 .col-offset-12 {
   margin-left: 100%; }
 
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
 body {
   font-size: 1rem;
   line-height: 1.45; }
@@ -1557,7 +1558,6 @@ a {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  height: 100%;
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
      -moz-box-align: end;
@@ -1576,8 +1576,7 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  height: 100%; }
+          flex-wrap: wrap; }
   .form .row .field {
     padding-left: 2%;
     padding-right: 2%; }
@@ -1648,8 +1647,7 @@ dl[data-list~="horizontal"] {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  height: 100%; }
+          flex-wrap: wrap; }
   dl.list--horizontal dt,
   dl[data-list~="horizontal"] dt {
     text-align: right;

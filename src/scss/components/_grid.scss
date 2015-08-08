@@ -11,7 +11,7 @@
 // ----------------------
 
 @mixin container() {
-  width: 90%;
+  width: 100%;
   height: 100%;
   &:before,
   &:after {
@@ -26,13 +26,16 @@
 @if $wire-markup == true {
   .#{$wire-namespace}container {
     @include container();
+    & > .#{$wire-namespace}grid,
+    & > [data-grid] {
+      height: 100%;
+    }
   }
 }
 
 [class*="col-"] {
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
 }
 
 
@@ -41,14 +44,11 @@
 @mixin grid() {
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
 }
 
-[data-grid] {
-  @include grid();
-}
 @if $wire-markup == true {
-  .#{$wire-namespace}grid {
+  .#{$wire-namespace}grid,
+  [data-grid] {
     @include grid();
   }
 }
@@ -434,7 +434,7 @@
   }
 }
 
-// Core Width
+// $Core Width
 @for $col from 1 through ($wire-max-columns) {
   @mixin columns($col) {
     width: $col * 100% / $wire-max-columns;
@@ -477,5 +477,16 @@
     .#{$wire-namespace}col-offset-#{$cols} {
       @extend %col-offset-#{$cols};
     }
+  }
+}
+
+// $Grid Row
+@mixin row() {
+  @include grid;
+}
+
+@if $wire-markup == true {
+  .#{$wire-namespace}row {
+    @include row();
   }
 }
