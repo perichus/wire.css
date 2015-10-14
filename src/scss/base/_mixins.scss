@@ -73,6 +73,10 @@
 // FontFace
 // fontface(name, filename, weight, style, stretch)
 // ----------------------
+@function font-url($path) {
+  @return url('fonts/' + $path);
+}
+
 @mixin font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
   @font-face {
       font-family: '#{$font-family}';

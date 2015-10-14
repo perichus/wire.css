@@ -59,10 +59,8 @@
   flex-direction: row;
 }
 
-[data-grid~="row"] {
-  @include grid-row();
-}
 @if $wire-markup == true {
+  [data-grid~="row"],
   .#{$wire-namespace}grid--row {
     @include grid-row();
   }
@@ -72,10 +70,8 @@
   flex-direction: row-reverse;
 }
 
-[data-grid~="row-reverse"] {
-  @include grid-row-reverse();
-}
 @if $wire-markup == true {
+  [data-grid~="row-reverse"],
   .#{$wire-namespace}grid--row-reverse {
     @include grid-row-reverse();
   }
@@ -85,10 +81,8 @@
   flex-direction: column;
 }
 
-[data-grid~="column"] {
-  @include grid-column();
-}
 @if $wire-markup == true {
+  [data-grid~="column"],
   .#{$wire-namespace}grid--column {
     @include grid-column();
   }
@@ -98,10 +92,8 @@
   flex-direction: column-reverse;
 }
 
-[data-grid~="column-reverse"] {
-  @include grid-column-reverse();
-}
 @if $wire-markup == true {
+  [data-grid~="column-reverse"],
   .#{$wire-namespace}grid--column-reverse {
     @include grid-column-reverse();
   }
@@ -113,10 +105,8 @@
   flex-wrap: wrap;
 }
 
-[data-grid~="wrap"] {
-  @include grid-wrap();
-}
 @if $wire-markup == true {
+  [data-grid~="wrap"],
   .#{$wire-namespace}grid--wrap {
     @include grid-wrap();
   }
@@ -127,10 +117,8 @@
   flex-wrap: wrap-reverse;
 }
 
-[data-grid~="wrap-reverse"] {
-  @include grid-wrap-reverse();
-}
 @if $wire-markup == true {
+  [data-grid~="wrap-reverse"],
   .#{$wire-namespace}grid--wrap-reverse {
     @include grid-wrap-reverse();
   }
@@ -141,10 +129,8 @@
   flex-wrap: nowrap;
 }
 
-[data-grid~="nowrap"] {
-  @include grid-nowrap();
-}
 @if $wire-markup == true {
+  [data-grid~="nowrap"],
   .#{$wire-namespace}grid--nowrap {
     @include grid-nowrap();
   }
@@ -156,10 +142,8 @@
   justify-content: flex-start;
 }
 
-[data-grid~="left"] {
-  @include grid-left();
-}
 @if $wire-markup == true {
+  [data-grid~="left"],
   .#{$wire-namespace}grid--left {
     @include grid-left();
   }
@@ -170,10 +154,8 @@
   justify-content: flex-end;
 }
 
-[data-grid~="right"] {
-  @include grid-right();
-}
 @if $wire-markup == true {
+  [data-grid~="right"],
   .#{$wire-namespace}grid--right {
     @include grid-right();
   }
@@ -184,10 +166,8 @@
   justify-content: center;
 }
 
-[data-grid~="center"] {
-  @include grid-center();
-}
 @if $wire-markup == true {
+  [data-grid~="center"],
   .#{$wire-namespace}grid--center {
     @include grid-center();
   }
@@ -198,10 +178,8 @@
   justify-content: space-between;
 }
 
-[data-grid~="space-between"] {
-  @include grid-between();
-}
 @if $wire-markup == true {
+  [data-grid~="space-between"],
   .#{$wire-namespace}grid--between {
     @include grid-between();
   }
@@ -212,10 +190,8 @@
   justify-content: space-around;
 }
 
-[data-grid~="space-around"] {
-  @include grid-around();
-}
 @if $wire-markup == true {
+  [data-grid~="space-around"],
   .#{$wire-namespace}grid--around {
     @include grid-around();
   }
@@ -227,10 +203,8 @@
   align-items: flex-start;
 }
 
-[data-grid~="va-top"] {
-  @include grid-va-top();
-}
 @if $wire-markup == true {
+  [data-grid~="va-top"],
   .#{$wire-namespace}grid--va-top {
     @include grid-va-top();
   }
@@ -241,10 +215,8 @@
   align-items: flex-end;
 }
 
-[data-grid~="va-bottom"] {
-  @include grid-va-bottom();
-}
 @if $wire-markup == true {
+  [data-grid~="va-bottom"],
   .#{$wire-namespace}grid--va-bottom {
     @include grid-va-bottom();
   }
@@ -255,10 +227,8 @@
   align-items: center;
 }
 
-[data-grid~="va-center"] {
-  @include grid-va-center();
-}
 @if $wire-markup == true {
+  [data-grid~="va-center"],
   .#{$wire-namespace}grid--va-center {
     @include grid-va-center();
   }
@@ -269,10 +239,8 @@
   align-content: baseline;
 }
 
-[data-grid~="va-baseline"] {
-  @include grid-va-baseline();
-}
 @if $wire-markup == true {
+  [data-grid~="va-baseline"],
   .#{$wire-namespace}grid--va-baseline {
     @include grid-va-baseline();
   }
@@ -283,10 +251,8 @@
   align-content: stretch;
 }
 
-[data-grid~="va-stretch"] {
-  @include grid-va-stretch();
-}
 @if $wire-markup == true {
+  [data-grid~="va-stretch"],
   .#{$wire-namespace}grid--va-stretch {
     @include grid-va-stretch();
   }
@@ -298,10 +264,8 @@
   align-content: stretch;
 }
 
-[data-grid~="ca-stretch"] {
-  @include grid-ca-stretch();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-stretch"],
   .#{$wire-namespace}grid--ca-stretch {
     @include grid-ca-stretch();
   }
@@ -312,10 +276,8 @@
   align-content: flex-start;
 }
 
-[data-grid~="ca-top"] {
-  @include grid-ca-top();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-top"],
   .#{$wire-namespace}grid--ca-top {
     @include grid-ca-top();
   }
@@ -326,10 +288,8 @@
   align-content: flex-end;
 }
 
-[data-grid~="ca-bottom"] {
-  @include grid-ca-bottom();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-bottom"],
   .#{$wire-namespace}grid--ca-bottom {
     @include grid-ca-bottom();
   }
@@ -340,10 +300,8 @@
   align-content: center;
 }
 
-[data-grid~="ca-center"] {
-  @include grid-ca-center();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-center"],
   .#{$wire-namespace}grid--ca-center {
     @include grid-ca-center();
   }
@@ -354,10 +312,8 @@
   align-content: space-around;
 }
 
-[data-grid~="ca-space-around"] {
-  @include grid-ca-space-around();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-space-around"],
   .#{$wire-namespace}grid--ca-space-around {
     @include grid-ca-space-around();
   }
@@ -368,10 +324,8 @@
   align-content: space-between;
 }
 
-[data-grid~="ca-space-between"] {
-  @include grid-ca-space-between();
-}
 @if $wire-markup == true {
+  [data-grid~="ca-space-between"],
   .#{$wire-namespace}grid--ca-space-between {
     @include grid-ca-space-between();
   }
@@ -391,10 +345,8 @@
   }
 }
 
-[data-grid~="center-center"] {
-  @include grid-center-center();
-}
 @if $wire-markup == true {
+  [data-grid~="center-center"],
   .#{$wire-namespace}grid--center-center {
     @include grid-center-center();
   }
