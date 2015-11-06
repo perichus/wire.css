@@ -7,18 +7,38 @@
 // Media Queries
 // Use predefined breakpoints defined in $wire-breakpoints or use custom value
 // mq(phone)
+// mq(phone, landscape)
 // mq(820px)
+// mq(768px, 1024px, landscape)
 // ----------------------
-@mixin mq($bp) {
-  @if map-has-key($wire-breakpoints, $bp) {
-    @media #{map-get($wire-breakpoints, $bp)} {
-      @content;
+@mixin mq($min, $max: false, $orientation: false) {
+  @if map-has-key($wire-breakpoints, $min) {
+    @if not $orientation {
+      @media #{map-get($wire-breakpoints, $min)} {
+        @content;
+      }
+    } @else {
+      @if map-has-key($wire-breakpoints, $min) {
+        @media #{map-get($wire-breakpoints, $min)} and (orientation : $orientation) {
+          @content;
+        }
+      }
     }
-  }
-
-  @else {
-    @media (max-width: #{$bp}) {
-      @content;
+  } @else {
+    @if not $max {
+      @media (max-width: #{$min}) {
+        @content;
+      }
+    } @else {
+      @if not $orientation {
+        @media (min-width: #{$min}) and (max-width: #{$max}) {
+          @content;
+        }
+      } @else {
+        @media (min-width: #{$min}) and (max-width: #{$max}) and (orientation: #{$orientation}) {
+          @content;
+        }
+      }
     }
   }
 }
