@@ -15,20 +15,21 @@
   line-height: inherit;
   display: inline-block;
   vertical-align: bottom;
-  padding: em(7.5) em(15);
+  text-align: center;
+  padding: em(7, 10) em(14, 10);
   transition: background-color .2s ease-out;
   &:hover {
     color: inherit;
     background-color: darken($wire-button-bg, 15%);
   }
   &.small {
-    font-size: .8rem;
+    font-size: rem(12);
   }
   &.large {
-    font-size: 1.2rem;
+    font-size: rem(18);
   }
   &.x-large {
-    font-size: 1.5rem;
+    font-size: rem(24);
   }
   &.alt {
     color: $wire-button-alt-color;

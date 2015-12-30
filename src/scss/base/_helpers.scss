@@ -8,8 +8,8 @@
 // rem(value, size)
 // Size attribute is optional
 // ----------------------
-@function rem($value, $base-value: $wire-font-size-base)  {
-  $value: ($value / $wire-font-size-base) * 1rem;
+@function rem($value)  {
+  $value: ($value / 10) * 1rem;
   @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
   @return $value;
 }
@@ -20,7 +20,7 @@
 // Size attribute is optional
 // ----------------------
 @function em($value, $context: $wire-font-size-base) {
-  @return #{1 / $context * $value}em;
+  @return #{$value / $context}em;
 }
 
 // ----------------------
@@ -44,46 +44,13 @@
 }
 
 // ----------------------
-// Center
+// Text Align
 // ----------------------
-@mixin center() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@if $wire-markup == true {
-  .#{$wire-namespace}center {
-    @include center();
-  }
-}
-
-// ----------------------
-// Align
-// ----------------------
-$a-positions: left, center, right;
-@each $a-position in $a-positions{
+$align-positions: left, center, right;
+@each $a-position in $align-positions{
   @if $wire-markup == true {
-    .#{$wire-namespace}align-#{$a-position} {
-      text-align: $a-position;
-    }
-  }
-}
-
-// ----------------------
-// Vertical Align
-// ----------------------
-$va-positions: top, bottom, middle;
-@each $va-position in $va-positions{
-  %va-#{$va-position}{
-    vertical-align: $va-position;
-  }
-}
-
-@if $wire-markup == true{
-  @each $va-position in $va-positions{
-    .va-#{$va-position}{
-      @extend %va-#{$va-position};
+    .#{$wire-namespace}align-#{$align-position} {
+      text-align: $align-position;
     }
   }
 }
@@ -99,6 +66,19 @@ $va-positions: top, bottom, middle;
 @if $wire-markup == true{
   .hidden {
     @extend %hidden;
+  }
+}
+
+// ----------------------
+// Invisible
+// ----------------------
+%invisible {
+  visibility : hidden;
+}
+
+@if $wire-markup == true{
+  .invisible {
+    @extend %invisible;
   }
 }
 
@@ -125,36 +105,6 @@ $va-positions: top, bottom, middle;
         display: none !important;
       }
     }
-  }
-}
-
-// ----------------------
-// Invisible
-// ----------------------
-%invisible {
-  visibility : hidden;
-}
-
-@if $wire-markup == true{
-  .invisible {
-    @extend %invisible;
-  }
-}
-
-// ----------------------
-// Hide Text
-// ----------------------
-%hide-text {
-  font-size: 0;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-
-@if $wire-markup == true{
-  .hide-text {
-    @extend %hide-text;
   }
 }
 

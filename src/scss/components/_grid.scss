@@ -332,7 +332,9 @@
 }
 
 
-// Helpers
+// Grid Helpers
+// Center - Center
+// Center vertical and horizontal
 @mixin grid-center-center() {
   justify-content: center;
   align-content: center;
@@ -352,6 +354,7 @@
   }
 }
 
+// Order
 @mixin order($position, $force: false) {
   @if $force == true {
       order: $position !important;
@@ -360,6 +363,7 @@
   }
 }
 
+// Push Left
 @mixin push-left() {
   @include order(-100, true);
 }
@@ -373,6 +377,7 @@
   }
 }
 
+// Push Right
 @mixin push-right() {
   @include order(100, true);
 }

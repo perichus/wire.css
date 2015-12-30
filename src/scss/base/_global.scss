@@ -6,10 +6,13 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-size: 62.5%;
 }
 
 body {
   height: 100%;
+  font-size: rem(16);
+  line-height: $wire-line-height-base;
 }
 
 *, *:before, *:after {

@@ -10,7 +10,7 @@
 //
 // ----------------------
 // Variables
-@import "variables";
+@import "config";
 
 // Reset (Normalize)
 @import "base/normalize.scss";
@@ -21,11 +21,13 @@
 // Helpers
 @import "base/helpers";
 
+// Global
+@import "base/global";
+
+
 // Components
-@import "components/global";
 @import "components/buttons";
 @import "components/grid";
-
 @import "components/typography";
 @import "components/forms";
 @import "components/list";

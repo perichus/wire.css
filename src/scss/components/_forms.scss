@@ -5,7 +5,7 @@
 // ----------------------
 
 @if $wire-markup == true {
-  .#{$wire-namespace}form{
+  .#{$wire-namespace}form {
     &[data-form~="horizontal"] {
       @include grid();
       @include grid-va-bottom();

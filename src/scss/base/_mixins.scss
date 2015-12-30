@@ -44,52 +44,6 @@
 }
 
 // ----------------------
-// Box Sizing
-// box-sizing(value)
-// ----------------------
-@mixin box-sizing($boxsize: border-box) {
-  @include prefix(box-sizing, $boxsize)
-}
-
-// ----------------------
-// CSS Arrow
-// arrow(size, color, direction)
-// Available directions: bottom, top, right, left
-// ----------------------
-@mixin arrow($arrow-size, $arrow-color, $arrow-direction) {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border: inset $arrow-size;
-  @if ($arrow-direction == bottom) {
-    border-color: $arrow-color transparent transparent transparent;
-    border-top-style: solid;
-  }
-  @if ($arrow-direction == top) {
-    border-color: transparent transparent $arrow-color transparent;
-    border-bottom-style: solid;
-  }
-  @if ($arrow-direction == right) {
-    border-color: transparent transparent transparent $arrow-color;
-    border-left-style: solid;
-  }
-  @if ($arrow-direction == left) {
-    border-color: transparent $arrow-color transparent transparent;
-    border-right-style: solid;
-  }
-}
-
-// ----------------------
-// Font Size Rems
-// font-size(value)
-// ----------------------
-@mixin font-size($font-size: 16) {
-  font-size: ($font-size) * 1px;
-  font-size: ($font-size / $font-size-base) * 1rem;
-}
-
-// ----------------------
 // FontFace
 // fontface(name, filename, weight, style, stretch)
 // ----------------------
