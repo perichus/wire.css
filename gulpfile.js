@@ -7,7 +7,6 @@ var gulp              = require('gulp');
 var gulpLoadPlugins   = require('gulp-load-plugins');
 var plugins           = gulpLoadPlugins();
 var pkg               = require('./package.json');
-require('gulp-release-tasks')(gulp);
 
 //
 // Paths
@@ -56,6 +55,7 @@ gulp.task('sass', function() {
 
 gulp.task('distSass', function() {
   gulp.src(path.cssDist + '/wire.css')
+      .pipe(plugins.mergeMediaQueries())
       .pipe(plugins.minifyCss())
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.css'))
