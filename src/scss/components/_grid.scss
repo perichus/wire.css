@@ -26,10 +26,6 @@
 @if $wire-markup == true {
   .#{$wire-namespace}container {
     @include container();
-    & > .#{$wire-namespace}grid,
-    & > [data-grid] {
-      height: 100%;
-    }
   }
 }
 

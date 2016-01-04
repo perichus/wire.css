@@ -387,28 +387,12 @@ th {
 .align-right {
   text-align: right; }
 
-.va-top {
-  vertical-align: top; }
-
-.va-bottom {
-  vertical-align: bottom; }
-
-.va-middle {
-  vertical-align: middle; }
-
 .hidden {
   display: none !important;
   visibility: hidden; }
 
 .invisible {
   visibility: hidden; }
-
-.hide-text {
-  font-size: 0;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0; }
 
 @media screen and (max-width: 719px) {
   .visible-phone {
@@ -482,6 +466,7 @@ input[type="button"] {
   line-height: inherit;
   display: inline-block;
   vertical-align: bottom;
+  text-align: center;
   padding: 0.7em 1.4em;
   -webkit-transition: background-color 0.2s ease-out;
      -moz-transition: background-color 0.2s ease-out;
@@ -547,9 +532,6 @@ input[type="button"][disabled],
     content: " "; }
   .container:after {
     clear: both; }
-  .container > .grid,
-  .container > [data-grid] {
-    height: 100%; }
 
 [class*="col-"] {
   -webkit-box-sizing: border-box;

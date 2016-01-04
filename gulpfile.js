@@ -7,6 +7,7 @@ var gulp              = require('gulp');
 var gulpLoadPlugins   = require('gulp-load-plugins');
 var plugins           = gulpLoadPlugins();
 var pkg               = require('./package.json');
+require('gulp-release-tasks')(gulp);
 
 //
 // Paths

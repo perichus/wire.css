@@ -47,7 +47,7 @@
 // Text Align
 // ----------------------
 $align-positions: left, center, right;
-@each $a-position in $align-positions{
+@each $align-position in $align-positions{
   @if $wire-markup == true {
     .#{$wire-namespace}align-#{$align-position} {
       text-align: $align-position;
