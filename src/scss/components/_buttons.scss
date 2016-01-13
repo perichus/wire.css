@@ -10,7 +10,7 @@
 %button{
   color: $wire-color-secundary;
   background-color: $wire-button-bg;
-  border: 0;
+  border: $wire-button-border;
   border-radius: $wire-border-radius;
   line-height: inherit;
   display: inline-block;

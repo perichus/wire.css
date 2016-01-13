@@ -1,6 +1,6 @@
 {
   "name": "wire.css",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "homepage": "http://wirecss.com",
   "authors": [
     "Pedro García <perichus@gmail.com>"
@@ -17,8 +17,8 @@
   ],
   "license": "MIT",
   "main": [
-    "dist/css/wire.min.css",
-    "dist/js/wire.min.js"
+    "dist/wire.min.css",
+    "dist/wire.min.js"
   ],
   "repository": {
     "type": "git",

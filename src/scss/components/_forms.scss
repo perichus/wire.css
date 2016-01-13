@@ -24,7 +24,7 @@
       .field {
         padding-left: $wire-base-gutter;
         padding-right: $wire-base-gutter;
-        @include mq(phone) {
+        @include mq(small) {
           padding-left: 0;
           padding-right: 0;
         }

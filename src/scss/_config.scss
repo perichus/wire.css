@@ -49,16 +49,17 @@ $wire-border-radius: 3px !default;
 // ----------------------
 // Brand Colors
 // ----------------------
-$wire-color-primary: #FFC843 !default;
+$wire-color-primary: #48A8CE !default;
 $wire-color-secundary: #7C7C7C !default;
 $wire-color-alt: #E0E0E0 !default;
 
-$wire-link-color: $wire-color-primary;
-$wire-link-color-hover: darken($wire-color-primary, 30%);
+$wire-link-color: $wire-color-primary !default;
+$wire-link-color-hover: darken($wire-color-primary, 30%) !default;
 
-$wire-button-bg: $wire-color-primary;
-$wire-button-alt-bg: $wire-color-alt;
-$wire-button-alt-color: $wire-color-secundary;
+$wire-button-bg: #FFF !default;
+$wire-button-border: "1px solid ${$wire-color-alt}" !default;
+$wire-button-alt-bg: $wire-color-alt !default;
+$wire-button-alt-color: $wire-color-secundary !default;
 
 $wire-form-input-border: #E0E0E0 !default;
 $wire-form-input-bg: #FFF !default;
@@ -76,9 +77,9 @@ $wire-base-gutter: 2% !default;
 // Breakpoints
 // ----------------------
 $wire-breakpoints: (
-  "phone"     :    "screen and (max-width: 719px)",
-  "retina"    :    "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)",
-  "tablet"    :    "screen and (min-width: 720px) and (max-width: 1023px)",
-  "desktop"   :    "screen and (min-width: 1024px)",
-  "desktopHD" :    "screen and (min-width: 1200px)"
+  "small": "screen and (max-width: 719px)",
+  "retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)",
+  "medium": "screen and (min-width: 720px) and (max-width: 1023px)",
+  "large": "screen and (min-width: 1024px)",
+  "huge": "screen and (min-width: 1200px)"
 ) !default;

@@ -399,7 +399,7 @@
     .#{$wire-namespace}col-#{$col},
     [data-col~="#{$col}"] {
       @include columns($col);
-      @include mq(phone) {
+      @include mq(small) {
         width: 100%;
       }
     }
