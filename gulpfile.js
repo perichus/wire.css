@@ -16,10 +16,7 @@ var path = {
     build     : './',
     css       : './css',
     js        : './js',
-    dist      : './dist',
-    cssDist   : './dist/css',
-    jsDist    : './dist/js',
-    sassDist  : './dist/scss'
+    dist      : './dist'
 };
 
 var source = {
@@ -46,32 +43,32 @@ gulp.task('sass', function() {
   gulp.src(source.scss)
       .pipe(plugins.sass())
       .on('error', function (err) { console.log(err.message); })
-      .pipe(gulp.dest(path.cssDist))
+      .pipe(gulp.dest(path.dist))
       .pipe(plugins.autoprefixer(
         { browsers: ['IE 8', 'IE 9', 'Firefox 14', 'last 5 versions',
         'Opera 11.1', 'Android 2.2'] }))
-      .pipe(gulp.dest(path.cssDist))
+      .pipe(gulp.dest(path.dist))
       .pipe(plugins.notify({ message: pkg.name + ' compiled successful. Happy Code!' , onLast: true}));
 });
 
 gulp.task('distSass', function() {
-  gulp.src(path.cssDist + '/wire.css')
+  gulp.src(path.dist + '/wire.css')
       .pipe(plugins.mergeMediaQueries())
       .pipe(plugins.minifyCss())
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.css'))
-      .pipe(gulp.dest(path.cssDist))
+      .pipe(gulp.dest(path.dist))
       .pipe(plugins.notify({ message: pkg.name + ' CSS minified successful. Happy Code!' , onLast: true}));
 });
 
 gulp.task('distJs', function() {
   gulp.src(source.js)
-      .pipe(gulp.dest(path.jsDist))
+      .pipe(gulp.dest(path.dist))
       .pipe(plugins.uglify())
       .on('error', function (err) { console.log(err.message); })
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.js'))
-      .pipe(gulp.dest(path.jsDist))
+      .pipe(gulp.dest(path.dist))
       .pipe(plugins.notify({ message: pkg.name + ' JS minified successful. Happy Code!' , onLast: true}));
 });
 

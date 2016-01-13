@@ -2,10 +2,10 @@ var wire = wire || {};
 
 // Variables
 var _breakpoints = {
-  desktopHD: window.matchMedia('screen and (min-width: 75em)'),
-  desktop: window.matchMedia('screen and (min-width: 64em)'),
-  tablet: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
-  phone: window.matchMedia('screen and (max-width: 44.95em)')
+  huge: window.matchMedia('screen and (min-width: 75em)'),
+  large: window.matchMedia('screen and (min-width: 64em)'),
+  medium: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
+  small: window.matchMedia('screen and (max-width: 44.95em)')
 };
 
 // Order Module
@@ -13,7 +13,7 @@ wire.order = (function() {
   var match = function() {
     for (var device in _breakpoints) {
       if (_breakpoints[device].matches) {
-        if (device === 'desktop') {
+        if (device === 'large') {
           wire.order.reorder();
         } else {
           wire.order.reorder(device);
