@@ -7,21 +7,21 @@ var gulp              = require('gulp');
 var gulpLoadPlugins   = require('gulp-load-plugins');
 var plugins           = gulpLoadPlugins();
 var pkg               = require('./package.json');
-require('gulp-release-tasks')(gulp);
 
 //
 // Paths
 //
 var path = {
-    build     : './',
-    css       : './css',
-    js        : './js',
-    dist      : './dist'
+  build     : './',
+  css       : './css',
+  js        : './js',
+  dist      : './dist'
 };
 
 var source = {
-    scss    : ['src/scss/**/*.scss' ],
-    js      : [ 'src/js/*.js' ]
+  mainsass: ['src/scss/wire.scss'],
+  scss    : ['src/scss/**/*.scss' ],
+  js      : [ 'src/js/*.js' ]
 };
 
 //
@@ -51,14 +51,21 @@ gulp.task('sass', function() {
       .pipe(plugins.notify({ message: pkg.name + ' compiled successful. Happy Code!' , onLast: true}));
 });
 
-gulp.task('distSass', function() {
+gulp.task('distCss', function() {
   gulp.src(path.dist + '/wire.css')
       .pipe(plugins.mergeMediaQueries())
       .pipe(plugins.minifyCss())
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.css'))
       .pipe(gulp.dest(path.dist))
-      .pipe(plugins.notify({ message: pkg.name + ' CSS minified successful. Happy Code!' , onLast: true}));
+});
+
+gulp.task('distSass', function() {
+  gulp.src(source.mainsass)
+      .pipe(plugins.cssimport())
+      .pipe(plugins.header(header, {pkg: pkg}))
+      .pipe(plugins.rename('_wire.scss'))
+      .pipe(gulp.dest(path.dist))
 });
 
 gulp.task('distJs', function() {
@@ -69,16 +76,15 @@ gulp.task('distJs', function() {
       .pipe(plugins.header(header, {pkg: pkg}))
       .pipe(plugins.rename('wire.min.js'))
       .pipe(gulp.dest(path.dist))
-      .pipe(plugins.notify({ message: pkg.name + ' JS minified successful. Happy Code!' , onLast: true}));
 });
 
 gulp.task('default', function() {
   gulp.watch(source.scss, ['sass']);
 });
 
-gulp.task('build', ['distSass', 'distJs']);
+gulp.task('build', ['distCss', 'distSass', 'distJs']);
 
 gulp.task('dev', function() {
-  gulp.watch(source.scss, ['sass', 'distSass']);
+  gulp.watch(source.scss, ['sass', 'distSass', 'distCss']);
   gulp.watch(source.js, ['distJs']);
 });

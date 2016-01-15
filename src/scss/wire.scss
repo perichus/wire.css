@@ -1,38 +1,32 @@
-/**
- * wire.css
- * @homepage   http://wirecss.com
- * @author     Pedro Garcia <pedro@pedrogarcia.me>
- * @license    Licensed under MIT
- */
 // ----------------------
 //
 // IMPORTS
 //
 // ----------------------
 // Variables
-@import "config";
+@import "_config.scss";
 
 // Reset (Normalize)
-@import "base/normalize.scss";
+@import "base/_normalize.scss";
 
 // Mixins
-@import "base/mixins";
+@import "base/_mixins.scss";
 
 // Helpers
-@import "base/helpers";
+@import "base/_helpers.scss";
 
 // Global
-@import "base/global";
+@import "base/_global.scss";
 
 
 // Components
-@import "components/buttons";
-@import "components/grid";
-@import "components/typography";
-@import "components/forms";
-@import "components/list";
-@import "components/tables";
-@import "components/images";
+@import "components/_buttons.scss";
+@import "components/_grid.scss";
+@import "components/_typography.scss";
+@import "components/_forms.scss";
+@import "components/_list.scss";
+@import "components/_tables.scss";
+@import "components/_images.scss";
 
 // Debug
-@import "tools/debug";
+@import "tools/_debug.scss";

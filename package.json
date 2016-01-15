@@ -1,17 +1,38 @@
 {
+  "title": "Wire.css",
   "name": "wire.css",
-  "version": "1.1.0",
+  "version": "1.1.1",
+  "description": "Simple and responsive flexbox based Sass Framework",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "mixin",
+    "responsive",
+    "rwd",
+    "flexbox",
+    "grid"
+  ],
   "homepage": "http://wirecss.com",
+  "bugs": {
+    "url": "https://github.com/perichus/wire.css/issues",
+    "email": "wire@pedrogarcia.me"
+  },
   "license": "MIT",
-  "author": "Pedro Garcia <pedro@pedrogarcia.me>",
+  "author": "Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)",
   "repository": {
     "type": "git",
     "url": "git://github.com/perichus/wire.css.git"
   },
+  "main": [
+    "dist/_wire.scss",
+    "dist/wire.min.css",
+    "dist/wire.min.js"
+  ],
   "devDependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-bump": "^0.3.0",
+    "gulp-cssimport": "^2.1.2",
     "gulp-header": "*",
     "gulp-load-plugins": "^0.8.0",
     "gulp-merge-media-queries": "^0.2.1",

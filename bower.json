@@ -1,22 +1,24 @@
 {
   "name": "wire.css",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "http://wirecss.com",
   "authors": [
-    "Pedro García <perichus@gmail.com>"
+    "Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)"
   ],
-  "description": "A simple and lightweight Sass-based Framework",
+  "description": "Simple and responsive flexbox based Sass Framework",
   "keywords": [
     "sass",
+    "scss",
     "css",
+    "mixin",
     "responsive",
     "rwd",
-    "framework",
-    "mobile",
-    "flexbox"
+    "flexbox",
+    "grid"
   ],
   "license": "MIT",
   "main": [
+    "dist/_wire.scss",
     "dist/wire.min.css",
     "dist/wire.min.js"
   ],
