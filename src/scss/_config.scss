@@ -56,6 +56,7 @@ $wire-color-alt: #E0E0E0 !default;
 $wire-link-color: $wire-color-primary !default;
 $wire-link-color-hover: darken($wire-color-primary, 30%) !default;
 
+$wire-button-color: $wire-color-secundary !default;
 $wire-button-bg: #FFF !default;
 $wire-button-border: "1px solid ${$wire-color-alt}" !default;
 $wire-button-alt-bg: $wire-color-alt !default;

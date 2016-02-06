@@ -1,6 +1,6 @@
 /**
  * wire.css
- * @version    1.1.3
+ * @version    1.1.4
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)
  * @license    Licensed under MIT
