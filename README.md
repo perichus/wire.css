@@ -1,4 +1,4 @@
-<img src="https://wirecss.com/user/themes/wire/images/wire-text.svg" width="200">
+<img src="https://dl.dropboxusercontent.com/u/2262085/wire-text.svg" width="200">
 
 [![npm](https://img.shields.io/npm/v/wire.css.svg?style=flat-square)](https://www.npmjs.com/package/wire.css) [![Bower](https://img.shields.io/bower/v/wire.css.svg?style=flat-square)](https://github.com/perichus/wire.css)
 
