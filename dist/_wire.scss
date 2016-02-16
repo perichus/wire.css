@@ -1,6 +1,6 @@
 /**
  * wire.css
- * @version    1.1.4
+ * @version    1.1.5
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)
  * @license    Licensed under MIT
@@ -69,11 +69,11 @@ $wire-color-alt: #E0E0E0 !default;
 $wire-link-color: $wire-color-primary !default;
 $wire-link-color-hover: darken($wire-color-primary, 30%) !default;
 
-$wire-button-color: $wire-color-secundary !default;
-$wire-button-bg: #FFF !default;
+$wire-button-color: #FFF !default;
+$wire-button-bg: $wire-color-primary !default;
 $wire-button-border: "1px solid ${$wire-color-alt}" !default;
-$wire-button-alt-bg: $wire-color-alt !default;
-$wire-button-alt-color: $wire-color-secundary !default;
+$wire-button-alt-bg: darken($wire-color-primary, 30%) !default;
+$wire-button-alt-color: #FFF !default;
 
 $wire-form-input-border: #E0E0E0 !default;
 $wire-form-input-bg: #FFF !default;
@@ -757,7 +757,7 @@ body {
 // Button
 // ----------------------
 %button{
-  color: $wire-color-secundary;
+  color: $wire-button-color;
   background-color: $wire-button-bg;
   border: $wire-button-border;
   border-radius: $wire-border-radius;
