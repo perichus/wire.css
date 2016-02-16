@@ -69,11 +69,11 @@ $wire-color-alt: #E0E0E0 !default;
 $wire-link-color: $wire-color-primary !default;
 $wire-link-color-hover: darken($wire-color-primary, 30%) !default;
 
-$wire-button-color: #FFF !default;
 $wire-button-bg: $wire-color-primary !default;
-$wire-button-border: "1px solid ${$wire-color-alt}" !default;
-$wire-button-alt-bg: darken($wire-color-primary, 30%) !default;
-$wire-button-alt-color: #FFF !default;
+$wire-button-color: #FFF !default;
+
+$wire-button-alt-bg: $wire-color-alt !default;
+$wire-button-alt-color: $wire-color-secundary !default;
 
 $wire-form-input-border: #E0E0E0 !default;
 $wire-form-input-bg: #FFF !default;
@@ -759,7 +759,7 @@ body {
 %button{
   color: $wire-button-color;
   background-color: $wire-button-bg;
-  border: $wire-button-border;
+  border: 0;
   border-radius: $wire-border-radius;
   line-height: inherit;
   display: inline-block;
@@ -768,7 +768,7 @@ body {
   padding: em(7, 10) em(14, 10);
   transition: background-color .2s ease-out;
   &:hover {
-    color: inherit;
+    color: #FFF;
     background-color: darken($wire-button-bg, 15%);
   }
   &.small {

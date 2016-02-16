@@ -455,7 +455,7 @@ input[type="submit"],
 input[type="button"] {
   color: #FFF;
   background-color: #48A8CE;
-  border: "1px solid ${$wire-color-alt}";
+  border: 0;
   border-radius: 3px;
   line-height: inherit;
   display: inline-block;
@@ -470,7 +470,7 @@ input[type="button"] {
   .btn:hover,
   input[type="submit"]:hover,
   input[type="button"]:hover {
-    color: inherit;
+    color: #FFF;
     background-color: #2b7e9f; }
   .small.button,
   .small.btn,
@@ -491,13 +491,13 @@ input[type="button"] {
   .alt.btn,
   input.alt[type="submit"],
   input.alt[type="button"] {
-    color: #FFF;
-    background-color: #1a4e63; }
+    color: #7C7C7C;
+    background-color: #E0E0E0; }
     .alt.button:hover,
     .alt.btn:hover,
     input.alt[type="submit"]:hover,
     input.alt[type="button"]:hover {
-      background-color: #0a1e26; }
+      background-color: #bababa; }
 
 input[type="submit"][disabled],
 input[type="button"][disabled],
@@ -506,16 +506,16 @@ input[type="button"][disabled],
 .button.disabled,
 .btn.disabled {
   cursor: not-allowed;
-  color: white;
-  background-color: #206079; }
+  color: #8a8a8a;
+  background-color: #eeeeee; }
   input[type="submit"][disabled]:hover,
   input[type="button"][disabled]:hover,
   .button[disabled]:hover,
   .btn[disabled]:hover,
   .button.disabled:hover,
   .btn.disabled:hover {
-    color: white;
-    background-color: #206079; }
+    color: #8a8a8a;
+    background-color: #eeeeee; }
 
 .container {
   width: 100%;

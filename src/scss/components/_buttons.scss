@@ -10,7 +10,7 @@
 %button{
   color: $wire-button-color;
   background-color: $wire-button-bg;
-  border: $wire-button-border;
+  border: 0;
   border-radius: $wire-border-radius;
   line-height: inherit;
   display: inline-block;
@@ -19,7 +19,7 @@
   padding: em(7, 10) em(14, 10);
   transition: background-color .2s ease-out;
   &:hover {
-    color: inherit;
+    color: #FFF;
     background-color: darken($wire-button-bg, 15%);
   }
   &.small {
