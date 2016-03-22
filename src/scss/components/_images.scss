@@ -1,1 +1,11 @@
-// ----------------------//// Images//// ----------------------img {	max-width: 100%;	width: 100%;  &.fixed {    width: auto;  }	&.border {		padding: .2em;		border: 1px solid $wire-color-alt;	}	&.round {		border-radius: 100%;	}}
+// ----------------------//// Images//// ----------------------img {
+	max-width: 100%;
+	width: 100%;	&.fixed {
+		width: auto;
+	}	&.border {
+		border: 1px solid $wire-color-alt;		
+		padding: .2em;
+	}	&.round {
+		border-radius: 100%;
+	}
+}

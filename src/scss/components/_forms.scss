@@ -5,78 +5,80 @@
 // ----------------------
 
 @if $wire-markup == true {
-  .#{$wire-namespace}form {
-    &[data-form~="horizontal"] {
-      @include grid();
-      @include grid-va-bottom();
-      .field {
-        padding-right: $wire-base-gutter;
-        &:last-child {
-          padding-right: 0;
-        }
-      }
-    }
-    ul {
-      @extend %list-unstyled;
-    }
-    .row {
-      @include grid();
-      .field {
-        padding-left: $wire-base-gutter;
-        padding-right: $wire-base-gutter;
-        @include mq(small) {
-          padding-left: 0;
-          padding-right: 0;
-        }
-        &:first-child {
-          padding-left: 0;
-        }
-        &:last-child {
-          padding-right: 0;
-        }
-      }
-    }
-    .field {
-      margin-bottom: 1em;
-      label {
-        display: inline-block;
-        margin-bottom: .3rem;
-      }
-      input[type="email"],
-      input[type="password"],
-      input[type="search"],
-      input[type="text"],
-      input[type="tel"],
-      input[type="url"],
-      select {
-        background: $wire-form-input-bg;
-        border: 1px solid $wire-form-input-border;
-        border-radius: 3px;
-        padding: .5em;
-        height: rem(38);
-        width: 100%;
-        transition: border-color .20s ease-in-out;
-        &:focus {
-          border-color: darken($wire-form-input-border, 25%);
-          outline: none;
-        }
-      }
-      textarea {
-        @extend input[type="text"];
-        height: auto;
-      }
-      input[type="checkbox"],
-      input[type="radio"] {
-        &:focus {
-          border-color: darken($wire-form-input-border, 25%);
-          outline: none;
-        }
-        + label {
-          margin-left: .25rem;
-          max-width: 88%;
-          vertical-align: top;
-        }
-      }
-    }
-  }
+	.#{$wire-namespace}form {
+		&[data-form~="horizontal"] {
+			@include grid-va-bottom();
+			@include grid();
+			.field {
+				padding-right: $wire-base-gutter;
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+		ul {
+			@extend %list-unstyled;
+		}
+		.row {
+			@include grid();
+			.field {
+				padding-left: $wire-base-gutter;
+				padding-right: $wire-base-gutter;
+
+				@include mq(small) {
+					padding-left: 0;
+					padding-right: 0;
+				}
+				&:first-child {
+					padding-left: 0;
+				}
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+		.field {
+			margin-bottom: 1em;
+			label {
+				display: inline-block;
+				margin-bottom: .3rem;
+			}
+			input[type="email"],
+			input[type="password"],
+			input[type="search"],
+			input[type="text"],
+			input[type="tel"],
+			input[type="url"],
+			select {
+				background: $wire-form-input-bg;
+				border: 1px solid $wire-form-input-border;
+				border-radius: 3px;
+				height: rem(38);
+				padding: .5em;
+				transition: border-color .20s ease-in-out;
+				width: 100%;
+				&:focus {
+					border-color: darken($wire-form-input-border, 25%);
+					outline: none;
+				}
+			}
+			textarea {
+				height: auto;
+
+				@extend input[type="text"];
+			}
+			input[type="checkbox"],
+			input[type="radio"] {
+				&:focus {
+					border-color: darken($wire-form-input-border, 25%);
+					outline: none;
+				}
+				+ label {
+					margin-left: .25rem;
+					max-width: 88%;
+					vertical-align: top;
+				}
+			}
+		}
+	}
 }

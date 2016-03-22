@@ -107,12 +107,3 @@ $align-positions: left, center, right;
     }
   }
 }
-
-// ----------------------
-// Fixed
-// ----------------------
-[data-fixed] {
-  position: relative;
-  top: 0;
-  //transition: top .25s ease;
-}

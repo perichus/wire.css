@@ -4,17 +4,19 @@
 //
 // ----------------------
 html {
-  box-sizing: border-box;
-  height: 100%;
-  font-size: 62.5%;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	height: 100%;
 }
 
 body {
-  height: 100%;
-  font-size: rem(16);
-  line-height: $wire-line-height-base;
+	font-size: rem(16);
+	height: 100%;
+	line-height: $wire-line-height-base;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
