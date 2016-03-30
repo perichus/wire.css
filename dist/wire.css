@@ -548,7 +548,8 @@ input[type="button"][disabled],
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  width: 100%; }
 
 [data-grid~="row"],
 .grid--row {
@@ -1328,7 +1329,8 @@ input[type="button"][disabled],
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  width: 100%; }
 
 .h1,
 .h2,
@@ -1400,7 +1402,8 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  width: 100%; }
   .form[data-form~="horizontal"] .field {
     padding-right: 2%; }
     .form[data-form~="horizontal"] .field:last-child {
@@ -1414,7 +1417,8 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  width: 100%; }
   .form .row .field {
     padding-left: 2%;
     padding-right: 2%; }
@@ -1484,7 +1488,8 @@ dl.list--horizontal {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  width: 100%; }
   dl.list--horizontal dt {
     padding-right: 1em;
     text-align: left;
