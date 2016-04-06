@@ -1,6 +1,6 @@
 /**
  * wire.css
- * @version    1.2.2
+ * @version    1.2.3
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)
  * @license    Licensed under MIT
@@ -1247,6 +1247,18 @@ body {
   @if $wire-markup == true {
     .#{$wire-namespace}col-offset-#{$cols} {
       @extend %col-offset-#{$cols};
+    }
+  }
+}
+
+@for $cols from 1 through ($wire-max-columns) {
+  @each $breakpoint, $value in $wire-breakpoints {
+    @include mq($breakpoint) {
+      @if $wire-markup == true {
+        .#{$wire-namespace}col-#{$breakpoint}-offset-#{$cols} {
+          margin-left: $cols * 100% / $wire-max-columns;
+        }
+      }
     }
   }
 }

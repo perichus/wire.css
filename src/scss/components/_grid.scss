@@ -434,6 +434,18 @@
   }
 }
 
+@for $cols from 1 through ($wire-max-columns) {
+  @each $breakpoint, $value in $wire-breakpoints {
+    @include mq($breakpoint) {
+      @if $wire-markup == true {
+        .#{$wire-namespace}col-#{$breakpoint}-offset-#{$cols} {
+          margin-left: $cols * 100% / $wire-max-columns;
+        }
+      }
+    }
+  }
+}
+
 // $Grid Row
 @mixin row() {
   @include grid;
