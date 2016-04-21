@@ -22,13 +22,13 @@
 		.row {
 			@include grid();
 			.field {
-				padding-left: $wire-base-gutter;
-				padding-right: $wire-base-gutter;
-
 				@include mq(small) {
 					padding-left: 0;
 					padding-right: 0;
 				}
+
+				padding-left: $wire-base-gutter;
+				padding-right: $wire-base-gutter;
 				&:first-child {
 					padding-left: 0;
 				}
@@ -63,9 +63,9 @@
 				}
 			}
 			textarea {
-				height: auto;
-
 				@extend input[type="text"];
+
+				height: auto;
 			}
 			input[type="checkbox"],
 			input[type="radio"] {
