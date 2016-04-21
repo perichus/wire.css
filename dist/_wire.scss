@@ -1,6 +1,6 @@
 /**
  * wire.css
- * @version    1.2.3
+ * @version    1.2.4
  * @homepage   http://wirecss.com
  * @author     Pedro Garcia <pedro@pedrogarcia.me> (http://pedrogarcia.me)
  * @license    Licensed under MIT
@@ -1206,10 +1206,10 @@ body {
 }
 
 // $Core Width
+@mixin columns($col) {
+  width: $col * 100% / $wire-max-columns;
+}
 @for $col from 1 through ($wire-max-columns) {
-  @mixin columns($col) {
-    width: $col * 100% / $wire-max-columns;
-  }
   %col-#{$col} {
     @include columns($col);
   }
@@ -1379,13 +1379,13 @@ a {
 		.row {
 			@include grid();
 			.field {
-				padding-left: $wire-base-gutter;
-				padding-right: $wire-base-gutter;
-
 				@include mq(small) {
 					padding-left: 0;
 					padding-right: 0;
 				}
+
+				padding-left: $wire-base-gutter;
+				padding-right: $wire-base-gutter;
 				&:first-child {
 					padding-left: 0;
 				}
@@ -1420,9 +1420,9 @@ a {
 				}
 			}
 			textarea {
-				height: auto;
-
 				@extend input[type="text"];
+
+				height: auto;
 			}
 			input[type="checkbox"],
 			input[type="radio"] {
@@ -1485,14 +1485,14 @@ a {
 }
 
 // ----------------------//// Tables//// ----------------------table {
-	width: 100%;		@include mq(small) {
+	@include mq(small) {
 		&[data-table~="responsive"] {
 			thead,
 			th {
 				display: none;
 			}			tbody {
 				tr {
-					border-bottom: 1px solid $wire-table-border-color;					
+					border-bottom: 1px solid $wire-table-border-color;
 					display: block;&:last-child {
 						border-bottom: 0;
 					}
@@ -1512,7 +1512,9 @@ a {
 				}
 			}
 		}
-	}	th,
+	}
+
+	width: 100%;	th,
 	td {
 		padding: .5em;
 	}	th {
@@ -1537,7 +1539,7 @@ a {
 	width: 100%;	&.fixed {
 		width: auto;
 	}	&.border {
-		border: 1px solid $wire-color-alt;		
+		border: 1px solid $wire-color-alt;
 		padding: .2em;
 	}	&.round {
 		border-radius: 100%;

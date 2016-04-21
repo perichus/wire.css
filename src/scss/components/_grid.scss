@@ -389,10 +389,10 @@
 }
 
 // $Core Width
+@mixin columns($col) {
+  width: $col * 100% / $wire-max-columns;
+}
 @for $col from 1 through ($wire-max-columns) {
-  @mixin columns($col) {
-    width: $col * 100% / $wire-max-columns;
-  }
   %col-#{$col} {
     @include columns($col);
   }

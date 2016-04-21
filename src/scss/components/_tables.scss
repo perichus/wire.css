@@ -1,12 +1,12 @@
 // ----------------------//// Tables//// ----------------------table {
-	width: 100%;		@include mq(small) {
+	@include mq(small) {
 		&[data-table~="responsive"] {
 			thead,
 			th {
 				display: none;
 			}			tbody {
 				tr {
-					border-bottom: 1px solid $wire-table-border-color;					
+					border-bottom: 1px solid $wire-table-border-color;
 					display: block;&:last-child {
 						border-bottom: 0;
 					}
@@ -26,7 +26,9 @@
 				}
 			}
 		}
-	}	th,
+	}
+
+	width: 100%;	th,
 	td {
 		padding: .5em;
 	}	th {
