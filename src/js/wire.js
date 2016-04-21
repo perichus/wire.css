@@ -1,4 +1,4 @@
-var wire = wire || {};
+var wire;
 
 // Variables
 var _breakpoints = {
@@ -8,10 +8,14 @@ var _breakpoints = {
   small: window.matchMedia('screen and (max-width: 44.95em)')
 };
 
+var device;
+wire = wire || {};
+
+
 // Order Module
 wire.order = (function() {
   var match = function() {
-    for (var device in _breakpoints) {
+    for (device in _breakpoints) {
       if (_breakpoints[device].matches) {
         if (device === 'large') {
           wire.order.reorder();
@@ -23,10 +27,14 @@ wire.order = (function() {
   };
 
   var reorder = function(device) {
+    var orderItems = ['[data-order]'];
+    var styledItems = document.querySelectorAll('[style*="order"]');
+    var _bp;
     if (device) {
-      var orderItems = ['[data-order]'];
-      for (var _bp in _breakpoints) {
-        orderItems.push('[data-order-' + _bp + ']');
+      for (_bp in _breakpoints) {
+        if ({}.hasOwnProperty.call(_breakpoints, _bp)) {
+          orderItems.push('[data-order-' + _bp + ']');
+        }
       }
       Array.prototype.forEach.call(document.querySelectorAll(orderItems), function(e) {
         if (e.getAttribute('data-order-' + device)) {
@@ -40,7 +48,6 @@ wire.order = (function() {
         }
       });
     } else {
-      var styledItems = document.querySelectorAll('[style*="order"]');
       Array.prototype.forEach.call(styledItems, function(e) {
         e.style.removeProperty('order');
       });
@@ -54,8 +61,7 @@ wire.order = (function() {
     match: match,
     reorder: reorder
   };
-
-})();
+}());
 
 // Responsive Tables Module
 wire.responsiveTable = (function() {
@@ -67,17 +73,18 @@ wire.responsiveTable = (function() {
     Array.prototype.forEach.call(elements(), function(e) {
       var thElements = e.getElementsByTagName('th');
       var thText = [];
+      var tbodyElements = e.getElementsByTagName('tbody');
+      var i = 0;
       Array.prototype.forEach.call(thElements, function(th) {
         thText.push(th.textContent);
       });
 
-      var tbodyElements = e.getElementsByTagName('tbody');
       Array.prototype.forEach.call(tbodyElements, function(tbody) {
         var trElements = tbody.getElementsByTagName('tr');
         Array.prototype.forEach.call(trElements, function(tr) {
-          var tdElements = tr.getElementsByTagName('td'),
-            tdCount = tdElements.length;
-          for (var i = 0; i < tdCount; ++i) {
+          var tdElements = tr.getElementsByTagName('td');
+          var tdCount = tdElements.length;
+          for (i; i < tdCount; ++i) {
             tdElements[i].setAttribute('data-th', thText[i]);
           }
         });
@@ -89,14 +96,15 @@ wire.responsiveTable = (function() {
     elements: elements,
     addData: addData
   };
-
-})();
+}());
 
 if (window.matchMedia) {
-  for (var device in _breakpoints) {
-    _breakpoints[device].addListener(wire.order.match);
-    if (_breakpoints[device].matches) {
-      wire.order.reorder(device);
+  for (device in _breakpoints) {
+    if ({}.hasOwnProperty.call(_breakpoints, device)) {
+      _breakpoints[device].addListener(wire.order.match);
+      if (_breakpoints[device].matches) {
+        wire.order.reorder(device);
+      }
     }
   }
 }
