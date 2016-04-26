@@ -407,39 +407,37 @@
   }
 }
 
-@for $cols from 1 through ($wire-max-columns) {
+@for $col from 1 through ($wire-max-columns) {
   @each $breakpoint, $value in $wire-breakpoints {
     @include mq($breakpoint) {
       @if $wire-markup == true {
-        .#{$wire-namespace}col-#{$breakpoint}-#{$cols},
-        [data-col-#{$breakpoint}~="#{$cols}"] {
-          padding-left: ($wire-base-gutter / 2);
-          padding-right: ($wire-base-gutter / 2);
-          width: $cols * 100% / $wire-max-columns;
+        .#{$wire-namespace}col-#{$breakpoint}-#{$col},
+        [data-col-#{$breakpoint}~="#{$col}"] {
+          @include columns($col);
         }
       }
     }
   }
 }
 
-@for $cols from 1 through ($wire-max-columns) {
-  %col-offset-#{$cols} {
-    margin-left: $cols * 100% / $wire-max-columns;
+@for $col from 1 through ($wire-max-columns) {
+  %col-offset-#{$col} {
+    margin-left: $col * 100% / $wire-max-columns;
   }
 
   @if $wire-markup == true {
-    .#{$wire-namespace}col-offset-#{$cols} {
-      @extend %col-offset-#{$cols};
+    .#{$wire-namespace}col-offset-#{$col} {
+      @extend %col-offset-#{$col};
     }
   }
 }
 
-@for $cols from 1 through ($wire-max-columns) {
+@for $col from 1 through ($wire-max-columns) {
   @each $breakpoint, $value in $wire-breakpoints {
     @include mq($breakpoint) {
       @if $wire-markup == true {
-        .#{$wire-namespace}col-#{$breakpoint}-offset-#{$cols} {
-          margin-left: $cols * 100% / $wire-max-columns;
+        .#{$wire-namespace}col-#{$breakpoint}-offset-#{$col} {
+          margin-left: $col * 100% / $wire-max-columns;
         }
       }
     }
