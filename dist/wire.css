@@ -459,10 +459,10 @@ body {
 .btn,
 input[type="submit"],
 input[type="button"] {
-  background-color: #48A8CE;
+  background-color: #48a8ce;
   border: 0;
   border-radius: 3px;
-  color: #FFF;
+  color: #ffffff;
   display: inline-block;
   line-height: inherit;
   padding: 0.7em 1.4em;
@@ -497,8 +497,8 @@ input[type="button"] {
   .alt.btn,
   input.alt[type="submit"],
   input.alt[type="button"] {
-    background-color: #E0E0E0;
-    color: #7C7C7C; }
+    background-color: #e0e0e0;
+    color: #7c7c7c; }
     .alt.button:hover,
     .alt.btn:hover,
     input.alt[type="submit"]:hover,
@@ -868,421 +868,301 @@ input[type="button"][disabled],
 @media screen and (max-width: 719px) {
   .col-small-1,
   [data-col-small~="1"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 8.33333%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-1,
   [data-col-retina~="1"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 8.33333%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-1,
   [data-col-medium~="1"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 8.33333%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-1,
   [data-col-large~="1"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 8.33333%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-1,
   [data-col-huge~="1"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 8.33333%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-2,
   [data-col-small~="2"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 16.66667%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-2,
   [data-col-retina~="2"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 16.66667%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-2,
   [data-col-medium~="2"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 16.66667%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-2,
   [data-col-large~="2"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 16.66667%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-2,
   [data-col-huge~="2"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 16.66667%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-3,
   [data-col-small~="3"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 25%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-3,
   [data-col-retina~="3"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 25%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-3,
   [data-col-medium~="3"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 25%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-3,
   [data-col-large~="3"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 25%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-3,
   [data-col-huge~="3"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 25%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-4,
   [data-col-small~="4"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 33.33333%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-4,
   [data-col-retina~="4"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 33.33333%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-4,
   [data-col-medium~="4"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 33.33333%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-4,
   [data-col-large~="4"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 33.33333%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-4,
   [data-col-huge~="4"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 33.33333%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-5,
   [data-col-small~="5"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 41.66667%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-5,
   [data-col-retina~="5"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 41.66667%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-5,
   [data-col-medium~="5"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 41.66667%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-5,
   [data-col-large~="5"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 41.66667%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-5,
   [data-col-huge~="5"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 41.66667%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-6,
   [data-col-small~="6"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 50%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-6,
   [data-col-retina~="6"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 50%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-6,
   [data-col-medium~="6"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 50%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-6,
   [data-col-large~="6"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 50%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-6,
   [data-col-huge~="6"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 50%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-7,
   [data-col-small~="7"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 58.33333%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-7,
   [data-col-retina~="7"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 58.33333%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-7,
   [data-col-medium~="7"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 58.33333%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-7,
   [data-col-large~="7"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 58.33333%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-7,
   [data-col-huge~="7"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 58.33333%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-8,
   [data-col-small~="8"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 66.66667%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-8,
   [data-col-retina~="8"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 66.66667%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-8,
   [data-col-medium~="8"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 66.66667%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-8,
   [data-col-large~="8"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 66.66667%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-8,
   [data-col-huge~="8"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 66.66667%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-9,
   [data-col-small~="9"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 75%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-9,
   [data-col-retina~="9"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 75%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-9,
   [data-col-medium~="9"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 75%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-9,
   [data-col-large~="9"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 75%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-9,
   [data-col-huge~="9"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 75%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-10,
   [data-col-small~="10"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 83.33333%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-10,
   [data-col-retina~="10"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 83.33333%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-10,
   [data-col-medium~="10"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 83.33333%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-10,
   [data-col-large~="10"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 83.33333%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-10,
   [data-col-huge~="10"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 83.33333%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-11,
   [data-col-small~="11"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 91.66667%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-11,
   [data-col-retina~="11"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 91.66667%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-11,
   [data-col-medium~="11"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 91.66667%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-11,
   [data-col-large~="11"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 91.66667%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-11,
   [data-col-huge~="11"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 91.66667%; } }
 
 @media screen and (max-width: 719px) {
   .col-small-12,
   [data-col-small~="12"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 100%; } }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 192), (-o-min-device-pixel-ratio: 192/1), (min-resolution: 192dppx) {
   .col-retina-12,
   [data-col-retina~="12"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 100%; } }
 
 @media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-medium-12,
   [data-col-medium~="12"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 100%; } }
 
 @media screen and (min-width: 1024px) {
   .col-large-12,
   [data-col-large~="12"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 100%; } }
 
 @media screen and (min-width: 1200px) {
   .col-huge-12,
   [data-col-huge~="12"] {
-    padding-left: 1%;
-    padding-right: 1%;
     width: 100%; } }
 
 .col-offset-1 {
@@ -1623,7 +1503,7 @@ mark {
   padding: .2em; }
 
 a {
-  color: #48A8CE;
+  color: #48a8ce;
   text-decoration: none; }
   a:hover,
   a:active {
@@ -1683,8 +1563,8 @@ a {
   .form .field textarea, .form .field input[type="tel"],
   .form .field input[type="url"],
   .form .field select {
-    background: #FFF;
-    border: 1px solid #E0E0E0;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
     border-radius: 3px;
     height: 3.8rem;
     padding: .5em;
@@ -1765,7 +1645,7 @@ table {
     table[data-table~="responsive"] th {
       display: none; }
     table[data-table~="responsive"] tbody tr {
-      border-bottom: 1px solid #D2D2D2;
+      border-bottom: 1px solid #d2d2d2;
       display: block; }
       table[data-table~="responsive"] tbody tr:last-child {
         border-bottom: 0; }
@@ -1786,11 +1666,11 @@ table {
   table th {
     text-align: left; }
   table thead th {
-    border-bottom: 1px solid #D2D2D2; }
+    border-bottom: 1px solid #d2d2d2; }
   table tfoot {
-    border-top: 1px solid #D2D2D2; }
+    border-top: 1px solid #d2d2d2; }
   table[data-table~="striped"] tr:nth-child(even) {
-    background: #E5E5E5; }
+    background: #e5e5e5; }
 
 img {
   max-width: 100%;
@@ -1798,7 +1678,7 @@ img {
   img.fixed {
     width: auto; }
   img.border {
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     padding: .2em; }
   img.round {
     border-radius: 100%; }
