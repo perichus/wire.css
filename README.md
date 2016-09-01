@@ -20,19 +20,19 @@ Select the best way to download Wire:
 **CSS**
 
 ```
-https://npmcdn.com/wire.css/dist/wire.min.css
+https://unpkg.com/wire.css/dist/wire.min.css
 ```
 
 **JS**
 
 ```
-https://npmcdn.com/wire.css/dist/wire.min.js
+https://unpkg.com/wire.css/dist/wire.min.js
 ```
 
 **SCSS** (All SCSS files merged)
 
 ```
-https://npmcdn.com/wire.css/dist/_wire.scss
+https://unpkg.com/wire.css/dist/_wire.scss
 ```
 
 ## Install
@@ -42,7 +42,7 @@ Add Wire in your HTML or import library in your Sass file.
 **HTML**
 
 ```html
-<link rel="stylesheet" href="https://npmcdn.com/wire.css/dist/wire.min.css" type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/wire.css/dist/wire.min.css" type="text/css">
 ```
 
 **SCSS** (Import wire.scss)
