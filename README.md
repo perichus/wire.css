@@ -1,6 +1,6 @@
-<img src="https://www.dropbox.com/s/9g5i1rc3pqpbdcr/wire-text.svg" width="200">
+<img src="https://www.wirecss.com/user/themes/wire/images/wire-text.png" width="200">
 
-[![npm](https://img.shields.io/npm/v/wire.css.svg?style=flat-square)](https://www.npmjs.com/package/wire.css) [![Bower](https://img.shields.io/bower/v/wire.css.svg?style=flat-square)](https://github.com/perichus/wire.css)
+[![npm](https://img.shields.io/npm/v/wire.css.svg?style=flat-square)](https://www.npmjs.com/package/wire.css)
 
 Wire is a simple and lightweight Sass-based Framework.
 
