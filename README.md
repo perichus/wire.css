@@ -12,7 +12,7 @@ Select the best way to download Wire:
 
 - [Download the latest release (SASS & JS Included)](https://github.com/perichus/wire.css/releases/latest)
 - Clone the repo with all source codes: `git clone https://github.com/perichus/wire.css.git`
-- Install via [Bower](http://bower.io/): `bower install wire.css`
+- Install via [Yarn](https://yarnpkg.com/): `yarn add wire.css`
 - Install via [NPM](https://www.npmjs.com/): `npm install wire.css`
 
 ### Or use CDN
@@ -49,7 +49,7 @@ Add Wire in your HTML or import library in your Sass file.
 
 ```scss
 // Import Wire.css Framework
-@import "../bower_components/wire.css/dist/_wire.scss";
+@import "../node_modules/wire.css/dist/_wire.scss";
 ```
 
 

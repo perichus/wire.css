@@ -1,112 +1,111 @@
-var wire;
-
-// Variables
-var _breakpoints = {
+const wire = {}
+wire._breakpoints = {
   huge: window.matchMedia('screen and (min-width: 75em)'),
   large: window.matchMedia('screen and (min-width: 64em)'),
   medium: window.matchMedia('screen and (min-width: 45em) and (max-width: 63.93em)'),
   small: window.matchMedia('screen and (max-width: 44.95em)')
-};
-
-var device;
-wire = wire || {};
-
+}
+wire.device = []
 
 // Order Module
-wire.order = (function() {
-  var match = function() {
-    for (device in _breakpoints) {
-      if (_breakpoints[device].matches) {
-        if (device === 'large') {
-          wire.order.reorder();
+wire.order = (function () {
+  const match = function () {
+    for (wire.device in wire._breakpoints) {
+      if (wire._breakpoints[wire.device].matches) {
+        if (wire.device === 'large') {
+          wire.order.reorder()
         } else {
-          wire.order.reorder(device);
+          wire.order.reorder(wire.device)
         }
       }
     }
-  };
+  }
 
-  var reorder = function(device) {
-    var orderItems = ['[data-order]'];
-    var styledItems = document.querySelectorAll('[style*="order"]');
-    var _bp;
+  const reorder = function (device) {
+    const orderItems = ['[data-order]']
+    const styledItems = document.querySelectorAll('[style*="order"]')
+    let _bp
+
     if (device) {
-      for (_bp in _breakpoints) {
-        if ({}.hasOwnProperty.call(_breakpoints, _bp)) {
-          orderItems.push('[data-order-' + _bp + ']');
+      for (_bp in wire._breakpoints) {
+        if ({}.hasOwnProperty.call(wire._breakpoints, _bp)) {
+          orderItems.push('[data-order-' + _bp + ']')
         }
       }
-      Array.prototype.forEach.call(document.querySelectorAll(orderItems), function(e) {
+      document.querySelectorAll(orderItems).forEach(function (e) {
         if (e.getAttribute('data-order-' + device)) {
-          e.style.order = e.getAttribute('data-order-' + device);
+          e.style.order = e.getAttribute('data-order-' + device)
         } else {
           if (e.getAttribute('data-order')) {
-            e.style.order = e.getAttribute('data-order');
+            e.style.order = e.getAttribute('data-order')
           } else {
-            e.style.removeProperty('order');
+            e.style.removeProperty('order')
           }
         }
-      });
+      })
     } else {
-      Array.prototype.forEach.call(styledItems, function(e) {
-        e.style.removeProperty('order');
-      });
-      Array.prototype.forEach.call(document.querySelectorAll('[data-order]'), function(e) {
-        e.style.order = e.getAttribute('data-order');
-      });
+      styledItems.forEach(function (e) {
+        e.style.removeProperty('order')
+      })
+      document.querySelectorAll('[data-order]').forEach(function (e) {
+        e.style.order = e.getAttribute('data-order')
+      })
     }
-  };
+  }
 
   return {
     match: match,
     reorder: reorder
-  };
-}());
-
-// Responsive Tables Module
-wire.responsiveTable = (function() {
-  var elements = function() {
-    return document.querySelectorAll('[data-table~="responsive"]');
-  };
-
-  var addData = function() {
-    Array.prototype.forEach.call(elements(), function(e) {
-      var thElements = e.getElementsByTagName('th');
-      var thText = [];
-      var tbodyElements = e.getElementsByTagName('tbody');
-      var i = 0;
-      Array.prototype.forEach.call(thElements, function(th) {
-        thText.push(th.textContent);
-      });
-
-      Array.prototype.forEach.call(tbodyElements, function(tbody) {
-        var trElements = tbody.getElementsByTagName('tr');
-        Array.prototype.forEach.call(trElements, function(tr) {
-          var tdElements = tr.getElementsByTagName('td');
-          var tdCount = tdElements.length;
-          for (i; i < tdCount; ++i) {
-            tdElements[i].setAttribute('data-th', thText[i]);
-          }
-        });
-      });
-    });
-  };
-
-  return {
-    elements: elements,
-    addData: addData
-  };
-}());
+  }
+}())
 
 if (window.matchMedia) {
-  for (device in _breakpoints) {
-    if ({}.hasOwnProperty.call(_breakpoints, device)) {
-      _breakpoints[device].addListener(wire.order.match);
-      if (_breakpoints[device].matches) {
-        wire.order.reorder(device);
+  for (wire.device in wire._breakpoints) {
+    if ({}.hasOwnProperty.call(wire._breakpoints, wire.device)) {
+      wire._breakpoints[wire.device].addListener(wire.order.match)
+      if (wire._breakpoints[wire.device].matches) {
+        wire.order.reorder(wire.device)
       }
     }
   }
 }
 
-if (wire.responsiveTable.elements().length) wire.responsiveTable.addData();
+// Responsive Tables Module
+wire.responsiveTable = (function () {
+  const getElements = function () {
+    return document.querySelectorAll('[data-table~="responsive"]')
+  }
+
+  const addData = function () {
+    getElements().forEach(function (e) {
+      const thElements = e.getElementsByTagName('th')
+      const thText = []
+      const tbodyElements = e.getElementsByTagName('tbody')
+
+      Array.prototype.forEach.call(thElements, function (th) {
+        thText.push(th.textContent)
+      })
+
+      Array.prototype.forEach.call(tbodyElements, function (tbody) {
+        const trElements = tbody.getElementsByTagName('tr')
+
+        Array.prototype.forEach.call(trElements, function (tr) {
+          const tdElements = tr.getElementsByTagName('td')
+          let i = 0
+
+          Array.prototype.forEach.call(tdElements, function (td) {
+            td.setAttribute('data-th', thText[i])
+            i++
+          })
+        })
+      })
+    })
+  }
+
+  return {
+    getElements: getElements,
+    addData: addData
+  }
+}())
+
+if (wire.responsiveTable.getElements().length) wire.responsiveTable.addData()

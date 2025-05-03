@@ -1,32 +1,23 @@
-// ----------------------
-//
-// IMPORTS
-//
-// ----------------------
+@use "sass:math";
+
 // Variables
-@import "_config.scss";
+@use "./_config.scss" as *;
 
 // Reset (Normalize)
-@import "base/_normalize.scss";
-
-// Mixins
-@import "base/_mixins.scss";
+@use "./base/normalize.scss" as *;
 
 // Helpers
-@import "base/_helpers.scss";
+@use "./base/mixins.scss" as *;
+@use "./base/helpers.scss" as *;
 
 // Global
-@import "base/_global.scss";
-
+@use "./base/global.scss" as *;
 
 // Components
-@import "components/_buttons.scss";
-@import "components/_grid.scss";
-@import "components/_typography.scss";
-@import "components/_forms.scss";
-@import "components/_list.scss";
-@import "components/_tables.scss";
-@import "components/_images.scss";
-
-// Debug
-@import "tools/_debug.scss";
+@use "./components/buttons.scss" as *;
+@use "./components/grid.scss" as *;
+@use "./components/typography.scss" as *;
+@use "./components/forms.scss" as *;
+@use "./components/list.scss" as *;
+@use "./components/tables.scss" as *;
+@use "./components/images.scss" as *;

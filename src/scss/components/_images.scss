@@ -1,11 +1,21 @@
-// ----------------------//// Images//// ----------------------img {
-	max-width: 100%;
-	width: 100%;	&.fixed {
-		width: auto;
-	}	&.border {
-		border: 1px solid $wire-color-alt;
-		padding: .2em;
-	}	&.round {
-		border-radius: 100%;
-	}
+@use "../_config.scss" as config;
+
+// ----------------------
+// Images
+// ----------------------
+@if config.$wire-markup {
+  img {
+    max-width: 100%;
+    width: 100%;
+    &.fixed {
+      width: auto;
+    }
+    &.border {
+      border: 1px solid config.$wire-color-alt;
+      padding: .2em;
+    }
+    &.round {
+      border-radius: 100%;
+    }
+  }
 }

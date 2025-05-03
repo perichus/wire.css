@@ -1,25 +1,26 @@
+@use "sass:map";
+@use "../_config.scss" as config;
+
 // ----------------------
-//
-// MIXINS
-//
+// Mixins
 // ----------------------
 // ----------------------
 // Media Queries
-// Use predefined breakpoints defined in $wire-breakpoints or use custom value
+// Use predefined breakpoints defined in config.$wire-breakpoints or use custom value
 // mq(phone)
 // mq(phone, landscape)
 // mq(820px)
 // mq(768px, 1024px, landscape)
 // ----------------------
 @mixin mq($min, $max: false, $orientation: false) {
-  @if map-has-key($wire-breakpoints, $min) {
+  @if map.has-key(config.$wire-breakpoints, $min) {
     @if not $orientation {
-      @media #{map-get($wire-breakpoints, $min)} {
+      @media #{map.get(config.$wire-breakpoints, $min)} {
         @content;
       }
     } @else {
-      @if map-has-key($wire-breakpoints, $min) {
-        @media #{map-get($wire-breakpoints, $min)} and (orientation : $orientation) {
+      @if map.has-key(config.$wire-breakpoints, $min) {
+        @media #{map.get(config.$wire-breakpoints, $min)} and (orientation : $orientation) {
           @content;
         }
       }

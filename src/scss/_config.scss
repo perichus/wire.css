@@ -1,7 +1,7 @@
+@use "sass:color";
+
 // ----------------------
-//
-// SETTINGS
-//
+// Settings
 // ----------------------
 // ----------------------
 // Namespace
@@ -21,19 +21,17 @@ $wire-namespace: '' !default;
 $wire-markup: true !default;
 
 // ----------------------
-// Debug Mode
+// Reset
 //
-// Highlight markup errors.
-// Set 'true' or 'false'. False by default.
+// Include reset.
+// Set 'true' or 'false'. True by default.
 // ----------------------
-$wire-debug: false !default;
+$wire-reset: true !default;
 
 
 
 // ----------------------
-//
-// VARIABLES
-//
+// Variables
 // ----------------------
 // ----------------------
 // Defaults Sizes (Base 10 to simplify)
@@ -49,14 +47,14 @@ $wire-border-radius: 3px !default;
 // Brand Colors
 // ----------------------
 $wire-color-primary: #48a8ce !default;
-$wire-color-secundary: #7c7c7c !default;
+$wire-color-secondary: #7c7c7c !default;
 $wire-color-alt: #e0e0e0 !default;
 $wire-link-color: $wire-color-primary !default;
-$wire-link-color-hover: darken($wire-color-primary, 30%) !default;
+$wire-link-color-hover: color.adjust($wire-color-primary, $lightness: -30%) !default;
 $wire-button-bg: $wire-color-primary !default;
 $wire-button-color: #ffffff !default;
 $wire-button-alt-bg: $wire-color-alt !default;
-$wire-button-alt-color: $wire-color-secundary !default;
+$wire-button-alt-color: $wire-color-secondary !default;
 $wire-form-input-border: #e0e0e0 !default;
 $wire-form-input-bg: #ffffff !default;
 $wire-table-tr-even-bg: #e5e5e5 !default;

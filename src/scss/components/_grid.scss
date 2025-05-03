@@ -1,5 +1,8 @@
+@use "sass:math";
+@use "../_config.scss" as config;
+@use "../base/mixins.scss" as mixins;
+
 // ----------------------
-//
 // Grid
 //
 // Content:
@@ -7,7 +10,7 @@
 // - Direction
 // - Wrap
 // - Align
-// - column Align
+// - Column Align
 // ----------------------
 
 @mixin container() {
@@ -23,15 +26,15 @@
   }
 }
 
-@if $wire-markup == true {
-  .#{$wire-namespace}container {
+@if config.$wire-markup {
+  .#{config.$wire-namespace}container {
     @include container();
   }
-}
 
-[class*="col-"] {
-  box-sizing: border-box;
-  width: 100%;
+  [class*="col-"] {
+    box-sizing: border-box;
+    width: 100%;
+  }
 }
 
 
@@ -43,8 +46,8 @@
   width: 100%;
 }
 
-@if $wire-markup == true {
-  .#{$wire-namespace}grid,
+@if config.$wire-markup {
+  .#{config.$wire-namespace}grid,
   [data-grid] {
     @include grid();
   }
@@ -56,9 +59,9 @@
   flex-direction: row;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="row"],
-  .#{$wire-namespace}grid--row {
+  .#{config.$wire-namespace}grid--row {
     @include grid-row();
   }
 }
@@ -67,9 +70,9 @@
   flex-direction: row-reverse;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="row-reverse"],
-  .#{$wire-namespace}grid--row-reverse {
+  .#{config.$wire-namespace}grid--row-reverse {
     @include grid-row-reverse();
   }
 }
@@ -78,9 +81,9 @@
   flex-direction: column;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="column"],
-  .#{$wire-namespace}grid--column {
+  .#{config.$wire-namespace}grid--column {
     @include grid-column();
   }
 }
@@ -89,9 +92,9 @@
   flex-direction: column-reverse;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="column-reverse"],
-  .#{$wire-namespace}grid--column-reverse {
+  .#{config.$wire-namespace}grid--column-reverse {
     @include grid-column-reverse();
   }
 }
@@ -102,9 +105,9 @@
   flex-wrap: wrap;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="wrap"],
-  .#{$wire-namespace}grid--wrap {
+  .#{config.$wire-namespace}grid--wrap {
     @include grid-wrap();
   }
 }
@@ -114,9 +117,9 @@
   flex-wrap: wrap-reverse;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="wrap-reverse"],
-  .#{$wire-namespace}grid--wrap-reverse {
+  .#{config.$wire-namespace}grid--wrap-reverse {
     @include grid-wrap-reverse();
   }
 }
@@ -126,9 +129,9 @@
   flex-wrap: nowrap;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="nowrap"],
-  .#{$wire-namespace}grid--nowrap {
+  .#{config.$wire-namespace}grid--nowrap {
     @include grid-nowrap();
   }
 }
@@ -139,9 +142,9 @@
   justify-content: flex-start;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="left"],
-  .#{$wire-namespace}grid--left {
+  .#{config.$wire-namespace}grid--left {
     @include grid-left();
   }
 }
@@ -151,9 +154,9 @@
   justify-content: flex-end;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="right"],
-  .#{$wire-namespace}grid--right {
+  .#{config.$wire-namespace}grid--right {
     @include grid-right();
   }
 }
@@ -163,9 +166,9 @@
   justify-content: center;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="center"],
-  .#{$wire-namespace}grid--center {
+  .#{config.$wire-namespace}grid--center {
     @include grid-center();
   }
 }
@@ -175,9 +178,9 @@
   justify-content: space-between;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="space-between"],
-  .#{$wire-namespace}grid--between {
+  .#{config.$wire-namespace}grid--between {
     @include grid-between();
   }
 }
@@ -187,9 +190,9 @@
   justify-content: space-around;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="space-around"],
-  .#{$wire-namespace}grid--around {
+  .#{config.$wire-namespace}grid--around {
     @include grid-around();
   }
 }
@@ -200,9 +203,9 @@
   align-items: flex-start;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="va-top"],
-  .#{$wire-namespace}grid--va-top {
+  .#{config.$wire-namespace}grid--va-top {
     @include grid-va-top();
   }
 }
@@ -212,9 +215,9 @@
   align-items: flex-end;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="va-bottom"],
-  .#{$wire-namespace}grid--va-bottom {
+  .#{config.$wire-namespace}grid--va-bottom {
     @include grid-va-bottom();
   }
 }
@@ -224,9 +227,9 @@
   align-items: center;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="va-center"],
-  .#{$wire-namespace}grid--va-center {
+  .#{config.$wire-namespace}grid--va-center {
     @include grid-va-center();
   }
 }
@@ -236,9 +239,9 @@
   align-content: baseline;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="va-baseline"],
-  .#{$wire-namespace}grid--va-baseline {
+  .#{config.$wire-namespace}grid--va-baseline {
     @include grid-va-baseline();
   }
 }
@@ -248,9 +251,9 @@
   align-content: stretch;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="va-stretch"],
-  .#{$wire-namespace}grid--va-stretch {
+  .#{config.$wire-namespace}grid--va-stretch {
     @include grid-va-stretch();
   }
 }
@@ -261,9 +264,9 @@
   align-content: stretch;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-stretch"],
-  .#{$wire-namespace}grid--ca-stretch {
+  .#{config.$wire-namespace}grid--ca-stretch {
     @include grid-ca-stretch();
   }
 }
@@ -273,9 +276,9 @@
   align-content: flex-start;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-top"],
-  .#{$wire-namespace}grid--ca-top {
+  .#{config.$wire-namespace}grid--ca-top {
     @include grid-ca-top();
   }
 }
@@ -285,9 +288,9 @@
   align-content: flex-end;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-bottom"],
-  .#{$wire-namespace}grid--ca-bottom {
+  .#{config.$wire-namespace}grid--ca-bottom {
     @include grid-ca-bottom();
   }
 }
@@ -297,9 +300,9 @@
   align-content: center;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-center"],
-  .#{$wire-namespace}grid--ca-center {
+  .#{config.$wire-namespace}grid--ca-center {
     @include grid-ca-center();
   }
 }
@@ -309,9 +312,9 @@
   align-content: space-around;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-space-around"],
-  .#{$wire-namespace}grid--ca-space-around {
+  .#{config.$wire-namespace}grid--ca-space-around {
     @include grid-ca-space-around();
   }
 }
@@ -321,9 +324,9 @@
   align-content: space-between;
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="ca-space-between"],
-  .#{$wire-namespace}grid--ca-space-between {
+  .#{config.$wire-namespace}grid--ca-space-between {
     @include grid-ca-space-between();
   }
 }
@@ -344,9 +347,9 @@
   }
 }
 
-@if $wire-markup == true {
+@if config.$wire-markup {
   [data-grid~="center-center"],
-  .#{$wire-namespace}grid--center-center {
+  .#{config.$wire-namespace}grid--center-center {
     @include grid-center-center();
   }
 }
@@ -368,7 +371,7 @@
 %push-left {
   @include push-left;
 }
-@if $wire-markup == true {
+@if config.$wire-markup {
   .push-left {
       @extend %push-left;
   }
@@ -382,7 +385,7 @@
 %push-right {
   @include push-right;
 }
-@if $wire-markup == true {
+@if config.$wire-markup {
   .push-right {
       @extend %push-right;
   }
@@ -390,28 +393,28 @@
 
 // $Core Width
 @mixin columns($col) {
-  width: $col * 100% / $wire-max-columns;
+  width: math.div($col * 100%, config.$wire-max-columns);
 }
-@for $col from 1 through ($wire-max-columns) {
+@for $col from 1 through (config.$wire-max-columns) {
   %col-#{$col} {
     @include columns($col);
   }
-  @if $wire-markup == true {
-    .#{$wire-namespace}col-#{$col},
+  @if config.$wire-markup {
+    .#{config.$wire-namespace}col-#{$col},
     [data-col~="#{$col}"] {
       @include columns($col);
-      @include mq(small) {
+      @include mixins.mq(small) {
         width: 100%;
       }
     }
   }
 }
 
-@for $col from 1 through ($wire-max-columns) {
-  @each $breakpoint, $value in $wire-breakpoints {
-    @include mq($breakpoint) {
-      @if $wire-markup == true {
-        .#{$wire-namespace}col-#{$breakpoint}-#{$col},
+@for $col from 1 through (config.$wire-max-columns) {
+  @each $breakpoint, $value in config.$wire-breakpoints {
+    @include mixins.mq($breakpoint) {
+      @if config.$wire-markup {
+        .#{config.$wire-namespace}col-#{$breakpoint}-#{$col},
         [data-col-#{$breakpoint}~="#{$col}"] {
           @include columns($col);
         }
@@ -420,24 +423,24 @@
   }
 }
 
-@for $col from 1 through ($wire-max-columns) {
+@for $col from 1 through (config.$wire-max-columns) {
   %col-offset-#{$col} {
-    margin-left: $col * 100% / $wire-max-columns;
+    margin-left: math.div($col * 100%, config.$wire-max-columns);
   }
 
-  @if $wire-markup == true {
-    .#{$wire-namespace}col-offset-#{$col} {
+  @if config.$wire-markup {
+    .#{config.$wire-namespace}col-offset-#{$col} {
       @extend %col-offset-#{$col};
     }
   }
 }
 
-@for $col from 1 through ($wire-max-columns) {
-  @each $breakpoint, $value in $wire-breakpoints {
-    @include mq($breakpoint) {
-      @if $wire-markup == true {
-        .#{$wire-namespace}col-#{$breakpoint}-offset-#{$col} {
-          margin-left: $col * 100% / $wire-max-columns;
+@for $col from 1 through (config.$wire-max-columns) {
+  @each $breakpoint, $value in config.$wire-breakpoints {
+    @include mixins.mq($breakpoint) {
+      @if config.$wire-markup {
+        .#{config.$wire-namespace}col-#{$breakpoint}-offset-#{$col} {
+          margin-left: math.div($col * 100%, config.$wire-max-columns);
         }
       }
     }
@@ -449,8 +452,8 @@
   @include grid;
 }
 
-@if $wire-markup == true {
-  .#{$wire-namespace}row {
+@if config.$wire-markup {
+  .#{config.$wire-namespace}row {
     @include row();
   }
 }

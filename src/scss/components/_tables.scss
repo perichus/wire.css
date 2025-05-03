@@ -1,49 +1,69 @@
-// ----------------------//// Tables//// ----------------------table {
-	@include mq(small) {
-		&[data-table~="responsive"] {
-			thead,
-			th {
-				display: none;
-			}			tbody {
-				tr {
-					border-bottom: 1px solid $wire-table-border-color;
-					display: block;&:last-child {
-						border-bottom: 0;
-					}
-				}				td {
-					display: block;
-					margin-left: 8em;					&::before {
-						content: attr(data-th) ": ";
-						display: inline-block;
-						font-weight: 700;
-						margin-left: -8em;
-						min-width: 8em;
-					}
-				}
-			}			tfoot {
-				td {
-					display: block;
-				}
-			}
-		}
-	}
+@use "../_config.scss" as config;
+@use "../base/mixins.scss" as mixins;
 
-	width: 100%;	th,
-	td {
-		padding: .5em;
-	}	th {
-		text-align: left;
-	}	thead {
-		th {
-			border-bottom: 1px solid $wire-table-border-color;
-		}
-	}	tfoot {
-		border-top: 1px solid $wire-table-border-color;
-	}&[data-table~="striped"] {
-		tr {
-			&:nth-child(even) {
-				background: $wire-table-tr-even-bg;
-			}
-		}
-	}
+// ----------------------
+// Tables
+// ----------------------
+
+@if config.$wire-markup {
+  table {
+    width: 100%;
+    @include mixins.mq(small) {
+      &[data-table~="responsive"] {
+        thead,
+        th {
+          display: none;
+        }
+        tbody {
+          tr {
+            border-bottom: 1px solid config.$wire-table-border-color;
+            display: block;
+
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+          td {
+            display: block;
+            margin-left: 8em;
+
+            &::before {
+              content: attr(data-th) ": ";
+              display: inline-block;
+              font-weight: 700;
+              margin-left: -8em;
+              min-width: 8em;
+            }
+          }
+        }
+        tfoot {
+          td {
+            display: block;
+          }
+        }
+      }
+    }
+
+    th,
+    td {
+      padding: .5em;
+    }
+    th {
+      text-align: left;
+    }
+    thead {
+      th {
+        border-bottom: 1px solid config.$wire-table-border-color;
+      }
+    }
+    tfoot {
+      border-top: 1px solid config.$wire-table-border-color;
+    }&[data-table~="striped"] {
+      tr {
+        &:nth-child(even) {
+          background: config.$wire-table-tr-even-bg;
+        }
+      }
+    }
+  }
 }

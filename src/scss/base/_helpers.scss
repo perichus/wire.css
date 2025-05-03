@@ -1,15 +1,18 @@
+@use "sass:math";
+@use "../_config.scss" as config;
+@use "./mixins.scss" as mixins;
+
 // ----------------------
-//
-// HELPERS
-//
+// Helpers
 // ----------------------
+
 // ----------------------
 // REM Calculation
 // rem(value, size)
 // Size attribute is optional
 // ----------------------
-@function rem($value)  {
-  $value: ($value / 10) * 1rem;
+@function rem($value, $context: 10)  {
+  $value: math.div($value, $context) * 1rem;
   @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
   @return $value;
 }
@@ -20,7 +23,7 @@
 // Size attribute is optional
 // ----------------------
 @function em($value, $context: $wire-font-size-base) {
-  @return #{$value / $context}em;
+  @return math.div($value, $context) * 1em;
 }
 
 // ----------------------
@@ -37,8 +40,8 @@
   }
 }
 
-@if $wire-markup == true{
-  .#{$wire-namespace}clearfix {
+@if config.$wire-markup{
+  .#{config.$wire-namespace}clearfix {
     @include clearfix();
   }
 }
@@ -48,8 +51,8 @@
 // ----------------------
 $align-positions: left, center, right;
 @each $align-position in $align-positions{
-  @if $wire-markup == true {
-    .#{$wire-namespace}align-#{$align-position} {
+  @if config.$wire-markup {
+    .#{config.$wire-namespace}align-#{$align-position} {
       text-align: $align-position;
     }
   }
@@ -63,7 +66,7 @@ $align-positions: left, center, right;
   visibility: hidden;
 }
 
-@if $wire-markup == true{
+@if config.$wire-markup{
   .hidden {
     @extend %hidden;
   }
@@ -76,7 +79,7 @@ $align-positions: left, center, right;
   visibility : hidden;
 }
 
-@if $wire-markup == true{
+@if config.$wire-markup{
   .invisible {
     @extend %invisible;
   }
@@ -85,10 +88,10 @@ $align-positions: left, center, right;
 // ----------------------
 // Show Elements on Device
 // ----------------------
-@each $breakpoint, $value in $wire-breakpoints {
-  @include mq($breakpoint) {
-    @if $wire-markup == true {
-      .#{$wire-namespace}visible-#{$breakpoint} {
+@each $breakpoint, $value in config.$wire-breakpoints {
+  @include mixins.mq($breakpoint) {
+    @if config.$wire-markup {
+      .#{config.$wire-namespace}visible-#{$breakpoint} {
         display: block !important;
       }
     }
@@ -98,12 +101,27 @@ $align-positions: left, center, right;
 // ----------------------
 // Hide Elements on Device
 // ----------------------
-@each $breakpoint, $value in $wire-breakpoints {
-  @include mq($breakpoint) {
-    @if $wire-markup == true {
-      .#{$wire-namespace}hidden-#{$breakpoint} {
+@each $breakpoint, $value in config.$wire-breakpoints {
+  @include mixins.mq($breakpoint) {
+    @if config.$wire-markup {
+      .#{config.$wire-namespace}hidden-#{$breakpoint} {
         display: none !important;
       }
     }
+  }
+}
+
+// ----------------------
+// List Unstyled
+// ----------------------
+%list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
   }
 }

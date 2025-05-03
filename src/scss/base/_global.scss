@@ -1,8 +1,9 @@
 // ----------------------
-//
 // Base
-//
 // ----------------------
+@use "../_config.scss" as config;
+@use "./helpers.scss" as helpers;
+
 html {
 	box-sizing: border-box;
 	font-size: 62.5%;
@@ -10,9 +11,9 @@ html {
 }
 
 body {
-	font-size: rem(16);
+	font-size: helpers.rem(16);
 	height: 100%;
-	line-height: $wire-line-height-base;
+	line-height: config.$wire-line-height-base;
 }
 
 *,
